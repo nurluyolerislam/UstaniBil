@@ -12,7 +12,7 @@ struct MechanicDetailView: View {
     
     let mechanic: Mechanic
     
-    @State var showingIndex = 0
+    @StateObject var viewModel = MechanicDetailViewModel()
     
     var body: some View {
         VStack{
@@ -42,8 +42,8 @@ struct MechanicDetailView: View {
                     .stroke()
             }
             
-            Button {
-                
+            NavigationLink {
+                AppoinmentRequestView(viewModel: self.viewModel, mechanic: self.mechanic)
             } label: {
                 Spacer()
                 Text("Randevu Oluştur")
@@ -91,41 +91,41 @@ struct MechanicDetailView: View {
             VStack{
                 HStack(spacing: 0){
                     Button {
-                        self.showingIndex = 0
+                        self.viewModel.showingIndex = 0
                     } label: {
                         VStack{
                             Text("Hizmetler")
                             Rectangle()
                                 .frame(height: 1)
                         }
-                        .foregroundColor(self.showingIndex == 0 ? .accentColor : .gray)
+                        .foregroundColor(self.viewModel.showingIndex == 0 ? .accentColor : .gray)
                     }
                     
                     Button {
-                        self.showingIndex = 1
+                        self.viewModel.showingIndex = 1
                     } label: {
                         VStack{
                             Text("Detay")
                             Rectangle()
                                 .frame(height: 1)
                         }
-                        .foregroundColor(self.showingIndex == 1 ? .accentColor : .gray)
+                        .foregroundColor(self.viewModel.showingIndex == 1 ? .accentColor : .gray)
                     }
                     
                     Button {
-                        self.showingIndex = 2
+                        self.viewModel.showingIndex = 2
                     } label: {
                         VStack{
                             Text("Yorumlar")
                             Rectangle()
                                 .frame(height: 1)
                         }
-                        .foregroundColor(self.showingIndex == 2 ? .accentColor : .gray)
+                        .foregroundColor(self.viewModel.showingIndex == 2 ? .accentColor : .gray)
                     }
                     
                 }
                 
-                if self.showingIndex == 0{
+                if self.viewModel.showingIndex == 0{
                     ForEach(self.mechanic.priceList, id: \.self){ service in
                         HStack{
                             Text(service.service)
@@ -136,7 +136,7 @@ struct MechanicDetailView: View {
                     }
                 }
                 
-                if self.showingIndex == 1{
+                if self.viewModel.showingIndex == 1{
                     VStack(alignment:.leading ,spacing: 15){
                         
                         HStack(alignment: .top){
@@ -182,7 +182,7 @@ struct MechanicDetailView: View {
                     }
                 }
                 
-                if self.showingIndex == 2{
+                if self.viewModel.showingIndex == 2{
                     VStack(spacing: 15){
                         NavigationLink {
                             ReviewView(mechanic: self.mechanic)

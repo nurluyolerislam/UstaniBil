@@ -48,6 +48,10 @@ struct AppoinmentsView: View {
                     }
                 }
             }
+            
+            if self.viewModel.confirmedAppoinments.isEmpty && self.viewModel.waitingAppoinments.isEmpty && self.viewModel.finishedAppoinments.isEmpty{
+                Text("Henüz bir randevunuz bulunmamaktadır.")
+            }
         }
         .onAppear {
             self.viewModel.fetchAppoinments()

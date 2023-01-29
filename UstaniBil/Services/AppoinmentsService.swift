@@ -26,4 +26,25 @@ struct AppoinmentsService{
             }
     }
     
+    func requestAppoinment(date: Date, description: String, mechanicID: String){
+        let data = [
+            "date" : Timestamp(date: date),
+            "description" : description,
+            "mechanic_id" : mechanicID,
+            "status" : "waiting",
+            "user_id" : ApplicationVariables.userID
+        ] as [String : Any]
+        
+        var ref: DocumentReference? = nil
+        
+        ref = Firestore.firestore().collection("appoinments")
+            .addDocument(data: data) { error in
+                if let error = error{
+                    print("DEBUG: Failed to request appoinment with error \(error.localizedDescription)")
+                } else{
+                    ref?.setData(["id" : ref?.documentID], merge: true)
+                }
+            }
+    }
+    
 }

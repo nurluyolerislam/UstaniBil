@@ -28,6 +28,8 @@
 		58A89E5829869C9D0068BE49 /* AppoinmentsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A89E5729869C9D0068BE49 /* AppoinmentsService.swift */; };
 		58A89E5A2986B6E80068BE49 /* AppoinmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A89E592986B6E80068BE49 /* AppoinmentCell.swift */; };
 		58A89E5C2986FEB50068BE49 /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A89E5B2986FEB50068BE49 /* ScoreView.swift */; };
+		58A89E5E2987323A0068BE49 /* MechanicDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A89E5D2987323A0068BE49 /* MechanicDetailViewModel.swift */; };
+		58A89E60298734BC0068BE49 /* AppoinmentRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A89E5F298734BC0068BE49 /* AppoinmentRequestView.swift */; };
 		58B7BD0F2909CD06000F50FF /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B7BD0E2909CD06000F50FF /* MainTabView.swift */; };
 		58B7BD172909CD92000F50FF /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B7BD162909CD92000F50FF /* ProfileView.swift */; };
 		58BC466D2902F49F00A6ECBC /* UstaniBilApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BC466C2902F49F00A6ECBC /* UstaniBilApp.swift */; };
@@ -68,6 +70,8 @@
 		58A89E5729869C9D0068BE49 /* AppoinmentsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppoinmentsService.swift; sourceTree = "<group>"; };
 		58A89E592986B6E80068BE49 /* AppoinmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppoinmentCell.swift; sourceTree = "<group>"; };
 		58A89E5B2986FEB50068BE49 /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
+		58A89E5D2987323A0068BE49 /* MechanicDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MechanicDetailViewModel.swift; sourceTree = "<group>"; };
+		58A89E5F298734BC0068BE49 /* AppoinmentRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppoinmentRequestView.swift; sourceTree = "<group>"; };
 		58B7BD0E2909CD06000F50FF /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		58B7BD162909CD92000F50FF /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		58BC46692902F49F00A6ECBC /* UstaniBil.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UstaniBil.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,6 +119,7 @@
 				58BC46A5290321AD00A6ECBC /* AuthViewModel.swift */,
 				589FB6AA296B07D800392E51 /* AppoinmentsViewModel.swift */,
 				58545DAB298549E9006453DE /* HomeViewModel.swift */,
+				58A89E5D2987323A0068BE49 /* MechanicDetailViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -144,6 +149,7 @@
 				589FB6A32969675F00392E51 /* HelpCenterView.swift */,
 				589FB6AE29759CB200392E51 /* ReviewView.swift */,
 				58545DA929854591006453DE /* StartupScreen.swift */,
+				58A89E5F298734BC0068BE49 /* AppoinmentRequestView.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -339,12 +345,14 @@
 				589FB6A2295DAE0100392E51 /* MechanicDetailView.swift in Sources */,
 				589FB6B3298119A700392E51 /* FirebaseService.swift in Sources */,
 				589FB69C2959AB6000392E51 /* NotificationsView.swift in Sources */,
+				58A89E60298734BC0068BE49 /* AppoinmentRequestView.swift in Sources */,
 				584DE6892939CEE2002AED69 /* MechanicCell.swift in Sources */,
 				589FB6A9296B04B400392E51 /* Appoinment.swift in Sources */,
 				58BC46B029032E6800A6ECBC /* RegistrationView.swift in Sources */,
 				58545DAA29854591006453DE /* StartupScreen.swift in Sources */,
 				58BC466D2902F49F00A6ECBC /* UstaniBilApp.swift in Sources */,
 				58BC46AA2903236200A6ECBC /* User.swift in Sources */,
+				58A89E5E2987323A0068BE49 /* MechanicDetailViewModel.swift in Sources */,
 				58BC46A6290321AD00A6ECBC /* AuthViewModel.swift in Sources */,
 				589FB6AB296B07D800392E51 /* AppoinmentsViewModel.swift in Sources */,
 				58A89E5C2986FEB50068BE49 /* ScoreView.swift in Sources */,

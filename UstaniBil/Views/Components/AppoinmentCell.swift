@@ -52,7 +52,7 @@ struct AppoinmentCell: View{
                 .buttonStyle(.plain)
                 .padding(.bottom, 10)
                 
-                Text(self.appoinment.date.dateValue().formatted(Date.FormatStyle().day(.twoDigits).month(.twoDigits)).description)
+                Text(self.appoinment.date.dateValue().formatted(Date.FormatStyle().day(.twoDigits).month(.twoDigits).year()).description)
                     .bold()
                 
                 Text(self.appoinment.date.dateValue().formatted(Date.FormatStyle().hour(.twoDigits(amPM: .omitted)).minute(.twoDigits)).description)
