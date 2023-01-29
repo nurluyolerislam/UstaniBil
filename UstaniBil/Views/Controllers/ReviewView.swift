@@ -79,7 +79,9 @@ struct ReviewView_Previews: PreviewProvider {
                                       id: "4guQBJMzd0qevDUPCLSP",
                                       languages: ["Türkçe"],
                                       phone: "+905444444444",
+                                      priceList: [Service(service: "aaa", price: 1000)],
                                       profileImageLocation: "gs://ustanibil-3a48d.appspot.com/erislam.jpg",
+                                      reviews: [Review(comment: "", userID: "", vote: 5)],
                                       totalVotes: 1287))
     }
 }

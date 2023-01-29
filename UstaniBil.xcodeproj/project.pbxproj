@@ -26,6 +26,8 @@
 		589FB6B3298119A700392E51 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589FB6B2298119A700392E51 /* FirebaseService.swift */; };
 		589FB6B62981269300392E51 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 589FB6B52981269300392E51 /* Kingfisher */; };
 		58A89E5829869C9D0068BE49 /* AppoinmentsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A89E5729869C9D0068BE49 /* AppoinmentsService.swift */; };
+		58A89E5A2986B6E80068BE49 /* AppoinmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A89E592986B6E80068BE49 /* AppoinmentCell.swift */; };
+		58A89E5C2986FEB50068BE49 /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A89E5B2986FEB50068BE49 /* ScoreView.swift */; };
 		58B7BD0F2909CD06000F50FF /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B7BD0E2909CD06000F50FF /* MainTabView.swift */; };
 		58B7BD172909CD92000F50FF /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B7BD162909CD92000F50FF /* ProfileView.swift */; };
 		58BC466D2902F49F00A6ECBC /* UstaniBilApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BC466C2902F49F00A6ECBC /* UstaniBilApp.swift */; };
@@ -64,6 +66,8 @@
 		589FB6B02981186E00392E51 /* ApplicationVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationVariables.swift; sourceTree = "<group>"; };
 		589FB6B2298119A700392E51 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		58A89E5729869C9D0068BE49 /* AppoinmentsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppoinmentsService.swift; sourceTree = "<group>"; };
+		58A89E592986B6E80068BE49 /* AppoinmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppoinmentCell.swift; sourceTree = "<group>"; };
+		58A89E5B2986FEB50068BE49 /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
 		58B7BD0E2909CD06000F50FF /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		58B7BD162909CD92000F50FF /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		58BC46692902F49F00A6ECBC /* UstaniBil.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UstaniBil.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,6 +155,8 @@
 				589FB6992954392800392E51 /* CustomSecureField.swift */,
 				589FB69F2959ACA800392E51 /* CustomSearchBar.swift */,
 				584DE6882939CEE2002AED69 /* MechanicCell.swift */,
+				58A89E592986B6E80068BE49 /* AppoinmentCell.swift */,
+				58A89E5B2986FEB50068BE49 /* ScoreView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -318,6 +324,7 @@
 				589FB69A2954392800392E51 /* CustomSecureField.swift in Sources */,
 				58E9CFF529033558004CBAB3 /* CustomInputField.swift in Sources */,
 				584DE6832938B84D002AED69 /* MechanicsService.swift in Sources */,
+				58A89E5A2986B6E80068BE49 /* AppoinmentCell.swift in Sources */,
 				58A89E5829869C9D0068BE49 /* AppoinmentsService.swift in Sources */,
 				58BC46AC290326CC00A6ECBC /* LoginView.swift in Sources */,
 				58B7BD172909CD92000F50FF /* ProfileView.swift in Sources */,
@@ -340,6 +347,7 @@
 				58BC46AA2903236200A6ECBC /* User.swift in Sources */,
 				58BC46A6290321AD00A6ECBC /* AuthViewModel.swift in Sources */,
 				589FB6AB296B07D800392E51 /* AppoinmentsViewModel.swift in Sources */,
+				58A89E5C2986FEB50068BE49 /* ScoreView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

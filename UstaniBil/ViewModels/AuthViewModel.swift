@@ -74,6 +74,7 @@ class AuthViewModel: ObservableObject{
     func signOut(){
         try? Auth.auth().signOut()
         self.userSession = nil
+        ApplicationVariables.resetUserID()
     }
     
     func fetchUser(){
@@ -81,7 +82,8 @@ class AuthViewModel: ObservableObject{
         
         self.service.fetchUser(withID: id) { user in
             self.currentUser = user
-            print("Current user değeri \(self.currentUser)")
+            ApplicationVariables.userID = id
+            print("Current user değeri \(String(describing: self.currentUser))")
         }
     }
     

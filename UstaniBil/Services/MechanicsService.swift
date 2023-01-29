@@ -21,4 +21,24 @@ class MechanicsService{
             }
     }
     
+    func fetchMechanic(withID id: String, completion: @escaping(Mechanic) -> Void){
+        Firestore.firestore().collection("mechanics")
+            .document(id)
+            .getDocument { snapshot, error in
+                
+                if let error = error{
+                    print("DEBUG: Failed to fetch mechanic with error \(error.localizedDescription)")
+                }
+                
+                guard let snapshot = snapshot else {return}
+                
+                do{
+                    let mechanic = try snapshot.data(as: Mechanic.self)
+                    completion(mechanic)
+                } catch{
+                    print(error)
+                }
+            }
+    }
+    
 }

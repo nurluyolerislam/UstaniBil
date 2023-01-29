@@ -126,28 +126,19 @@ struct MechanicDetailView: View {
                 }
                 
                 if self.showingIndex == 0{
-                    HStack{
-                        Text("ABS Tamiri")
-                        Spacer()
-                        Text("450 TL")
-                            .bold()
-                    }
-                    HStack{
-                        Text("Balata Değişimi")
-                        Spacer()
-                        Text("2000 TL")
-                            .bold()
-                    }
-                    HStack{
-                        Text("Motor Tamiri")
-                        Spacer()
-                        Text("5000 TL")
-                            .bold()
+                    ForEach(self.mechanic.priceList, id: \.self){ service in
+                        HStack{
+                            Text(service.service)
+                            Spacer()
+                            Text("\(service.price) TL")
+                                .bold()
+                        }
                     }
                 }
                 
                 if self.showingIndex == 1{
-                    VStack(alignment: .leading, spacing: 15){
+                    VStack(alignment:.leading ,spacing: 15){
+                        
                         HStack(alignment: .top){
                             Image(systemName: "person")
                                 .foregroundColor(.accentColor)
@@ -157,7 +148,7 @@ struct MechanicDetailView: View {
                                 Text(self.mechanic.about)
                             }
                         }
-                        
+
                         HStack(alignment: .top){
                             Image(systemName: "globe")
                                 .foregroundColor(.accentColor)
@@ -167,7 +158,7 @@ struct MechanicDetailView: View {
                                 Text(self.mechanic.languages.joined(separator: ", "))
                             }
                         }
-                        
+
                         HStack(alignment: .top){
                             Image(systemName: "graduationcap")
                                 .foregroundColor(.accentColor)
@@ -177,7 +168,7 @@ struct MechanicDetailView: View {
                                 Text("Lise")
                             }
                         }
-                        
+
                         HStack(alignment: .top){
                             Image(systemName: "envelope")
                                 .foregroundColor(.accentColor)
@@ -211,32 +202,22 @@ struct MechanicDetailView: View {
                         
                         self.voteView
                         
-                        HStack(alignment: .top){
-                            Image(systemName: "person.circle.fill")
-                                .font(.system(size: 32))
-                            
-                            VStack(alignment: .leading){
-                                Text("Mustafa Burak Kuştan")
+                        ForEach(self.mechanic.reviews, id: \.self){ review in
+                            HStack(alignment: .top){
+                                Image(systemName: "person.circle.fill")
+                                    .font(.system(size: 32))
                                 
-                                Text("Usta işinde çok iyi ve çok hızlı.")
-                                    .font(.footnote)
-                            }
-                            
-                            Spacer()
-                        }
-                        
-                        HStack(alignment: .top){
-                            Image(systemName: "person.circle.fill")
-                                .font(.system(size: 32))
-                            
-                            VStack(alignment: .leading){
-                                Text("Selçuk Şahin")
+                                VStack(alignment: .leading){
+                                    Text(review.userID)
+                                    
+                                    ScoreView(score: Double(review.vote))
+                                    
+                                    Text(review.comment)
+                                        .font(.footnote)
+                                }
                                 
-                                Text("Çok kibar ve çok ilgiliydi.")
-                                    .font(.footnote)
+                                Spacer()
                             }
-                            
-                            Spacer()
                         }
                     }
                 }
@@ -267,7 +248,9 @@ struct MechanicDetailView_Previews: PreviewProvider {
                                               id: "4guQBJMzd0qevDUPCLSP",
                                               languages: ["Türkçe"],
                                               phone: "+905444444444",
+                                              priceList: [Service(service: "aaa", price: 1000)],
                                               profileImageLocation: "gs://ustanibil-3a48d.appspot.com/erislam.jpg",
+                                              reviews: [Review(comment: "aaa", userID: "aaa", vote: 5)],
                                               totalVotes: 1287))
     }
 }
@@ -279,15 +262,7 @@ extension MechanicDetailView{
                 Text("\(self.mechanic.avarageScore, specifier: "%.1f") / 5")
                     .font(.title)
                 
-                HStack(spacing: 1){
-                    Image(systemName: self.mechanic.avarageScore < 1  ? "wrench.adjustable" : "wrench.adjustable.fill")
-                    Image(systemName: self.mechanic.avarageScore < 2  ? "wrench.adjustable" : "wrench.adjustable.fill")
-                    Image(systemName: self.mechanic.avarageScore < 3  ? "wrench.adjustable" : "wrench.adjustable.fill")
-                    Image(systemName: self.mechanic.avarageScore < 4  ? "wrench.adjustable" : "wrench.adjustable.fill")
-                    Image(systemName: self.mechanic.avarageScore < 5  ? "wrench.adjustable" : "wrench.adjustable.fill")
-                }
-                .font(.footnote)
-                .foregroundColor(.accentColor)
+                ScoreView(score: self.mechanic.avarageScore)
                 
                 Text("\(self.mechanic.totalVotes) değerlendirme")
                     .foregroundColor(.gray)
@@ -309,3 +284,4 @@ extension MechanicDetailView{
         }
     }
 }
+

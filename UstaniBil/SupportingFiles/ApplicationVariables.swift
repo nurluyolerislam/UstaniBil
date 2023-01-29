@@ -10,14 +10,6 @@ import Foundation
 struct ApplicationVariables{
     static let defaults = UserDefaults.standard
     
-    static var isUserLoggedIn: Bool{
-        get{
-            return defaults.bool(forKey: "isLoggedIn")
-        }set{
-            defaults.set(newValue, forKey: "isLoggedIn")
-        }
-    }
-    
     static var userID: String{
         get{
             return defaults.string(forKey: "userID") ?? ""
@@ -26,4 +18,7 @@ struct ApplicationVariables{
         }
     }
     
+    static func resetUserID(){
+        defaults.removeObject(forKey: "userID")
+    }
 }

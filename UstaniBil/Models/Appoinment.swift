@@ -7,12 +7,13 @@
 
 import FirebaseFirestore
 
-struct Appoinment: Codable{
+struct Appoinment: Decodable, Identifiable{
+    
     let date: Timestamp
     let description: String
     let id: String
     let mechanicID: String
-    let status: String
+    var status: String
     let userID: String
     
     enum CodingKeys: String,CodingKey {

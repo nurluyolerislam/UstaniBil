@@ -8,7 +8,7 @@
 import Firebase
 import FirebaseFirestoreSwift
 
-struct Mechanic: Identifiable, Hashable, Codable{
+struct Mechanic: Identifiable, Decodable{
     let about: String
     let address:String
     let avarageScore:Double
@@ -20,7 +20,9 @@ struct Mechanic: Identifiable, Hashable, Codable{
     let id: String
     let languages: [String]
     let phone: String
+    let priceList: [Service]
     let profileImageLocation: String
+    let reviews: [Review]
     let totalVotes:Int
     
     enum CodingKeys: String, CodingKey {
@@ -35,7 +37,31 @@ struct Mechanic: Identifiable, Hashable, Codable{
         case id
         case languages
         case phone
+        case priceList = "price_list"
         case profileImageLocation = "profile_image_location"
+        case reviews
         case totalVotes = "total_votes"
+    }
+}
+
+struct Service: Hashable, Decodable{
+    let service: String
+    let price: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case service
+        case price
+    }
+}
+
+struct Review: Hashable, Decodable{
+    let comment: String
+    let userID: String
+    let vote: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case comment
+        case userID = "user_id"
+        case vote
     }
 }

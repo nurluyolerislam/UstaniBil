@@ -73,7 +73,7 @@ extension HomeView{
             
             ScrollView(.horizontal, showsIndicators: false){
                 HStack{
-                    ForEach(self.viewModel.mechanics, id: \.self) { mechanic in
+                    ForEach(self.viewModel.mechanics, id: \.id) { mechanic in
                         NavigationLink {
                             MechanicDetailView(mechanic: mechanic)
                         } label: {
@@ -91,7 +91,7 @@ extension HomeView{
             
             ScrollView(.horizontal, showsIndicators: false){
                 HStack{
-                    ForEach(self.viewModel.mechanics, id: \.self) { mechanic in
+                    ForEach(self.viewModel.mechanics, id: \.id) { mechanic in
                         NavigationLink {
                             MechanicDetailView(mechanic: mechanic)
                         } label: {

@@ -11,7 +11,7 @@ struct AppoinmentsService{
     
     func fetchAppoinments(completion: @escaping([Appoinment]) -> Void){
         Firestore.firestore().collection("appoinments")
-            .whereField("user_id", isEqualTo: "SlDZzLQxYBNKS32IpyiyRMxbnrp1")
+            .whereField("user_id", isEqualTo: ApplicationVariables.userID)
             .getDocuments { snapshot, error in
                 
                 if let error = error{
