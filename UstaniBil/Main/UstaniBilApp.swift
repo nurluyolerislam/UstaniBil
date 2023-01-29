@@ -22,6 +22,7 @@ struct UstaniBilApp: App {
             NavigationView{
                 ContentView()
             }
+            .accentColor(.green)
             .environmentObject(self.viewModel)
         }
     }

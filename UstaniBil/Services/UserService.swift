@@ -9,16 +9,24 @@ import Firebase
 
 struct UserService{
     
-    func fetchUser(withUid uid: String, completion: @escaping(User) -> Void){
+    func fetchUser(withID id: String, completion: @escaping(User) -> Void){
         Firestore.firestore().collection("users")
-            .document(uid)
+            .document(id)
             .getDocument { snapshot, error in
+                
+                if let error = error{
+                    print("DEBUG: Failed to fetch user with error \(error.localizedDescription)")
+                }
                 
                 guard let snapshot = snapshot else {return}
                 
-                guard let user = try? snapshot.data(as: User.self) else {return}
-                
-                completion(user)
+                do{
+                    let user = try snapshot.data(as: User.self)
+                    completion(user)
+                } catch{
+                    print(error)
+                }
             }
     }
+    
 }

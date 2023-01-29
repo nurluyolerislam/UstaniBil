@@ -45,7 +45,7 @@ struct LoginView: View {
 
         }
         .padding()
-        .accentColor(.green)
+        .navigationBarBackButtonHidden()
     }
 }
 

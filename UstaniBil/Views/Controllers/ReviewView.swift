@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct ReviewView: View {
     let mechanic: Mechanic
@@ -14,12 +15,12 @@ struct ReviewView: View {
     var body: some View {
         VStack{
             HStack{
-                Image(systemName: "person.circle.fill")
-                    .font(.system(size: 56))
-//                Circle()
-//                    .frame(width: 56, height: 56)
+                KFImage(URL(string: self.mechanic.profileImageLocation))
+                    .resizable()
+                    .clipShape(Circle())
+                    .frame(width: 56, height: 56)
                 
-                Text(self.mechanic.fullName)
+                Text(self.mechanic.fullname)
                     .bold()
                 
                 Spacer()
@@ -62,19 +63,24 @@ struct ReviewView: View {
         }
         .navigationTitle("Deneyimini Paylaş")
         .padding()
-        .accentColor(.green)
     }
 }
 
 struct ReviewView_Previews: PreviewProvider {
     static var previews: some View {
-        ReviewView(mechanic: Mechanic(avarageScore: 4.3,
-                                      brand: "Renault",
-                                      city: "Kahramanmaraş",
-                                      company: "Nurluyol A.Ş.",
-                                      fullName: "Erislam Nurluyol",
-                                      phone: "+905554443322",
-                                      totalVote: 3158))
+        ReviewView(mechanic: Mechanic(about: "Marka araçları üzerinde 10 yıllık deneyime sahibim. 4 yıldır elektromekanik alanında çalışıyorum.",
+                                      address: "Kahramanmaraş",
+                                      avarageScore: 4.5,
+                                      brand: "Ford",
+                                      company: "Kemak A.Ş.",
+                                      education: "Lise",
+                                      email: "mehmetozdemir@gmail.com",
+                                      fullname: "Mehmet Özdemir",
+                                      id: "4guQBJMzd0qevDUPCLSP",
+                                      languages: ["Türkçe"],
+                                      phone: "+905444444444",
+                                      profileImageLocation: "gs://ustanibil-3a48d.appspot.com/erislam.jpg",
+                                      totalVotes: 1287))
     }
 }
 

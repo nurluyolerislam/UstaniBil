@@ -14,51 +14,8 @@ struct AppoinmentsView: View {
     var body: some View {
         Form{
             Section {
-                
-                HStack(alignment: .top){
-                    
-                    VStack(alignment: .leading){
-                        
-                        Text("Onaylandı")
-                            .foregroundColor(.accentColor)
-                            .padding(.horizontal, 10)
-                            .background {
-                                RoundedRectangle(cornerRadius: 20)
-                                    .fill(.gray)
-                            }
-                            .padding(.bottom, 10)
-                        
-                        Text("Fren Balata Değişimi")
-                            .bold()
-                        
-                        Text("Emirhan Koçak")
-                            .font(.footnote)
-                    }
-                    
-                    Spacer()
-                    
-                    VStack{
-                        
-                        Button {
-                            
-                        } label: {
-                            Text("Detay")
-                                .padding(.horizontal, 10)
-                                .background {
-                                    RoundedRectangle(cornerRadius: 20)
-                                        .stroke()
-                                }
-                        }
-                        .foregroundColor(.accentColor)
-                        .buttonStyle(.plain)
-                        .padding(.bottom, 10)
-                        
-                        Text("23/01")
-                            .bold()
-                        
-                        Text("15:00")
-                            .font(.footnote)
-                    }
+                if let appo = self.viewModel.appoinments.first{
+                    AppoinmentCell(appoinment: appo)
                 }
             } header: {
                 Text("Yaklaşan Randevularınız")
@@ -82,7 +39,7 @@ struct AppoinmentsView: View {
                         Text("Motor Tamiri")
                             .bold()
                         
-                        Text("Osman Bilginer")
+                        Text("Mehmet Özdemir")
                             .font(.footnote)
                     }
                     
@@ -131,7 +88,7 @@ struct AppoinmentsView: View {
                         Text("Polen Filtresi Değişimi")
                             .bold()
                         
-                        Text("Doğan Can Bayazıt")
+                        Text("Turan Kaya")
                             .font(.footnote)
                     }
                     
@@ -166,14 +123,66 @@ struct AppoinmentsView: View {
             }
             
         }
-//        .onAppear {
-//            self.viewModel.fetchAppoinments()
-//        }
+        .onAppear {
+            self.viewModel.fetchAppoinments()
+        }
     }
 }
 
 struct AppoinmentsView_Previews: PreviewProvider {
     static var previews: some View {
         AppoinmentsView()
+    }
+}
+
+
+struct AppoinmentCell: View{
+    let appoinment: Appoinment
+    var body: some View{
+        HStack(alignment: .top){
+            
+            VStack(alignment: .leading){
+                
+                Text(self.appoinment.status)
+                    .foregroundColor(.accentColor)
+                    .padding(.horizontal, 10)
+                    .background {
+                        RoundedRectangle(cornerRadius: 20)
+                            .fill(.gray)
+                    }
+                    .padding(.bottom, 10)
+                
+                Text(self.appoinment.description)
+                    .bold()
+                
+                Text(self.appoinment.userID)
+                    .font(.footnote)
+            }
+            
+            Spacer()
+            
+            VStack{
+                
+                Button {
+                    
+                } label: {
+                    Text("Detay")
+                        .padding(.horizontal, 10)
+                        .background {
+                            RoundedRectangle(cornerRadius: 20)
+                                .stroke()
+                        }
+                }
+                .foregroundColor(.accentColor)
+                .buttonStyle(.plain)
+                .padding(.bottom, 10)
+                
+                Text(self.appoinment.date.dateValue().description)
+                    .bold()
+                
+//                Text("15:00")
+//                    .font(.footnote)
+            }
+        }
     }
 }

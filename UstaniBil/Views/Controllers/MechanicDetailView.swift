@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct MechanicDetailView: View {
     
@@ -18,13 +19,13 @@ struct MechanicDetailView: View {
             
             HStack{
                 
-                Image(systemName: "person.circle.fill")
-                    .font(.system(size: 84))
-//                Circle()
-//                    .frame(width: 84, height: 84)
+                KFImage(URL(string: self.mechanic.profileImageLocation))
+                    .resizable()
+                    .clipShape(Circle())
+                    .frame(width: 84, height: 84)
                 
                 VStack(alignment: .leading){
-                    Text(self.mechanic.fullName)
+                    Text(self.mechanic.fullname)
                     
                     Text(self.mechanic.company)
                     
@@ -53,7 +54,6 @@ struct MechanicDetailView: View {
             .foregroundColor(.white)
             .background {
                 RoundedRectangle(cornerRadius: 20)
-//                    .fill(.green)
                     .foregroundColor(.accentColor)
             }
             
@@ -61,7 +61,7 @@ struct MechanicDetailView: View {
                 HStack{
                     Image(systemName: "mappin.and.ellipse")
                     
-                    Text(self.mechanic.city)
+                    Text(self.mechanic.address)
                     
                     Spacer()
                 }
@@ -154,7 +154,7 @@ struct MechanicDetailView: View {
                             VStack(alignment: .leading){
                                 Text("Usta Hakkında")
                                     .bold()
-                                Text("Marka araçları üzerinde 10 yıllık deneyime sahibim. 4 yıldır elektromekanik alanında çalışıyorum.")
+                                Text(self.mechanic.about)
                             }
                         }
                         
@@ -164,7 +164,7 @@ struct MechanicDetailView: View {
                             VStack(alignment: .leading){
                                 Text("Diller")
                                     .bold()
-                                Text("Türkçe")
+                                Text(self.mechanic.languages.joined(separator: ", "))
                             }
                         }
                         
@@ -174,7 +174,7 @@ struct MechanicDetailView: View {
                             VStack(alignment: .leading){
                                 Text("Eğitim")
                                     .bold()
-                                Text("-")
+                                Text("Lise")
                             }
                         }
                         
@@ -184,7 +184,7 @@ struct MechanicDetailView: View {
                             VStack(alignment: .leading){
                                 Text("E-Posta")
                                     .bold()
-                                Text("nurluyolerislam@gmail.com")
+                                Text(self.mechanic.email)
                             }
                         }
                         
@@ -214,8 +214,6 @@ struct MechanicDetailView: View {
                         HStack(alignment: .top){
                             Image(systemName: "person.circle.fill")
                                 .font(.system(size: 32))
-//                            Circle()
-//                                .frame(width: 32, height: 32)
                             
                             VStack(alignment: .leading){
                                 Text("Mustafa Burak Kuştan")
@@ -230,8 +228,6 @@ struct MechanicDetailView: View {
                         HStack(alignment: .top){
                             Image(systemName: "person.circle.fill")
                                 .font(.system(size: 32))
-//                            Circle()
-//                                .frame(width: 32, height: 32)
                             
                             VStack(alignment: .leading){
                                 Text("Selçuk Şahin")
@@ -253,21 +249,26 @@ struct MechanicDetailView: View {
             
             Spacer()
         }
-        .navigationTitle(self.mechanic.fullName)
+        .navigationTitle(self.mechanic.fullname)
         .padding()
-        .accentColor(.green)
     }
 }
 
 struct MechanicDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        MechanicDetailView(mechanic: Mechanic(avarageScore: 4.3,
-                                              brand: "Renault",
-                                              city: "Kahramanmaraş",
-                                              company: "Nurluyol A.Ş.",
-                                              fullName: "Erislam Nurluyol",
-                                              phone: "+905554443322",
-                                              totalVote: 3158))
+        MechanicDetailView(mechanic: Mechanic(about: "Marka araçları üzerinde 10 yıllık deneyime sahibim. 4 yıldır elektromekanik alanında çalışıyorum.",
+                                              address: "Kahramanmaraş",
+                                              avarageScore: 4.5,
+                                              brand: "Ford",
+                                              company: "Kemak A.Ş.",
+                                              education: "Lise",
+                                              email: "mehmetozdemir@gmail.com",
+                                              fullname: "Mehmet Özdemir",
+                                              id: "4guQBJMzd0qevDUPCLSP",
+                                              languages: ["Türkçe"],
+                                              phone: "+905444444444",
+                                              profileImageLocation: "gs://ustanibil-3a48d.appspot.com/erislam.jpg",
+                                              totalVotes: 1287))
     }
 }
 
@@ -288,7 +289,7 @@ extension MechanicDetailView{
                 .font(.footnote)
                 .foregroundColor(.accentColor)
                 
-                Text("\(self.mechanic.totalVote) değerlendirme")
+                Text("\(self.mechanic.totalVotes) değerlendirme")
                     .foregroundColor(.gray)
                     .font(.footnote)
             }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct ContentView: View {
     
@@ -14,8 +15,7 @@ struct ContentView: View {
     var body: some View {
         Group{
             if self.viewModel.userSession == nil{
-//                LoginView()
-                MainTabView()
+                StartupScreen()
             } else {
                 MainTabView()
             }

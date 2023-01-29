@@ -9,19 +9,16 @@ import Firebase
 
 class MechanicsService{
     
-    var mechanics : [Mechanic] = []
-    
-    func fetchMechanics(city: String, brand: String){
+    func fetchMechanics(completion: @escaping([Mechanic]) -> Void){
         Firestore.firestore().collection("mechanics")
-            .whereField("city", isEqualTo: city)
-            .whereField("brand", isEqualTo: brand)
             .getDocuments { snapshot, error in
-                guard let snapshot = snapshot else {return}
-                
-                for document in snapshot.documents{
-                    self.mechanics.append(document as! Mechanic)
+                if let error = error{
+                    print("DEBUG: Failed to fetch mechanics with error \(error.localizedDescription)")
                 }
-                
+                guard let documents = snapshot?.documents else {return}
+                let mechanics = documents.compactMap({try? $0.data(as: Mechanic.self)})
+                completion(mechanics)
             }
     }
+    
 }

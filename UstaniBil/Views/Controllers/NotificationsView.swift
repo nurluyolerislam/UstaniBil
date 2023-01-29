@@ -23,7 +23,7 @@ struct NotificationsView: View {
                         Text("Randevu Uyarısı")
                             .bold()
                         
-                        Text("Emirhan Koçak ile olan randevunuz 15 dakika sonra başlayacak. Lütfen geç kalmayın!")
+                        Text("Ahmet Yılmaz ile olan randevunuz 15 dakika sonra başlayacak. Lütfen geç kalmayın!")
                             .font(.footnote)
                     }
                 }
@@ -37,7 +37,7 @@ struct NotificationsView: View {
                         Text("Randevunuz Onaylandı")
                             .bold()
                         
-                        Text("Emihan Koçak ile olan randevun talebiniz onaylandı. Randevu tarihiniz 23 Ocak 2023 15:00.")
+                        Text("Ahmet Yılmaz ile olan randevun talebiniz onaylandı. Randevu tarihiniz 23 Ocak 2023 15:00.")
                             .font(.footnote)
                     }
                 }
@@ -51,7 +51,7 @@ struct NotificationsView: View {
                         Text("Randevunuz Reddedildi")
                             .bold()
                         
-                        Text("Doğan Can Bayazıt ile olan randevun talebiniz reddedildi.")
+                        Text("Turan Kaya ile olan randevun talebiniz reddedildi.")
                             .font(.footnote)
                     }
                 }

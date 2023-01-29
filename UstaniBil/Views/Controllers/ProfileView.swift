@@ -6,27 +6,30 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct ProfileView: View {
     
+    @EnvironmentObject var authViewModel: AuthViewModel
     @State var notificationStatus: Bool = true
     var body: some View {
         Form{
             Section {
-                HStack(alignment: .top){
-                    Image("erislam")
+                HStack{
+                    KFImage(URL(string: self.authViewModel.currentUser?.profileImageLocation ?? ""))
                         .resizable()
                         .clipShape(Circle())
                         .frame(width: 56, height: 56)
                     
                     VStack(alignment: .leading){
-                        Text("Erislam Nurluyol")
+                        Text(self.authViewModel.currentUser?.fullname ?? "")
                             .bold()
                         
                         Group{
-                            Text("nurluyolerislam@gmail.com")
-                            Text("+90 536 913 24 83")
-                            Text("Tekerek Mh. 94033. Sk Onikişubat/Kahramanmaraş")
+                            Text(self.authViewModel.currentUser?.email ?? "")
+                                .lineLimit(1)
+                            Text(self.authViewModel.currentUser?.phone ?? "")
+                            Text(self.authViewModel.currentUser?.address ?? "")
                         }
                         .foregroundColor(.gray)
                         .font(.footnote)
@@ -62,10 +65,10 @@ struct ProfileView: View {
                         .frame(width: 40, height: 40)
                     
                     VStack(alignment: .leading){
-                        Text("Ford Focus")
+                        Text("\(self.authViewModel.currentUser?.cars.first?.brand ?? "") \(self.authViewModel.currentUser?.cars.first?.model ?? "")")
                             .bold()
                         
-                        Text("Sedan | 2020")
+                        Text(self.authViewModel.currentUser?.cars.first?.year ?? "")
                             .font(.footnote)
                     }
                     
@@ -106,7 +109,7 @@ struct ProfileView: View {
             
             Section{
                 Button {
-                    
+                    self.authViewModel.signOut()
                 } label: {
                     Text("Çıkış Yap")
                         .foregroundColor(.red)
@@ -114,6 +117,9 @@ struct ProfileView: View {
 
             }
             
+        }
+        .onAppear {
+            print("DEBUG: Current User \(self.authViewModel.currentUser)")
         }
     }
 }

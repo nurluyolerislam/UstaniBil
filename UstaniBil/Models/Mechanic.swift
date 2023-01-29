@@ -8,13 +8,34 @@
 import Firebase
 import FirebaseFirestoreSwift
 
-struct Mechanic: Hashable,Identifiable{
-    let id = UUID().uuidString
-    let avarageScore: Double
-    let brand: String
-    let city: String
-    let company: String
-    let fullName: String
+struct Mechanic: Identifiable, Hashable, Codable{
+    let about: String
+    let address:String
+    let avarageScore:Double
+    let brand:String
+    let company:String
+    let education:String
+    let email:String
+    let fullname:String
+    let id: String
+    let languages: [String]
     let phone: String
-    let totalVote: Int
+    let profileImageLocation: String
+    let totalVotes:Int
+    
+    enum CodingKeys: String, CodingKey {
+        case about
+        case address
+        case avarageScore = "avarage_score"
+        case brand
+        case company
+        case education
+        case email
+        case fullname
+        case id
+        case languages
+        case phone
+        case profileImageLocation = "profile_image_location"
+        case totalVotes = "total_votes"
+    }
 }
