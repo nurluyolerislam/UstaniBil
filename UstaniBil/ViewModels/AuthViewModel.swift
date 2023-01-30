@@ -59,7 +59,6 @@ class AuthViewModel: ObservableObject{
                 "username" : username.lowercased()
             ]
             
-            //Varolan document içerisinde değişiklik yapmak istiyorsak setDatanın merge parametresini true yapıyoruz.
             Firestore.firestore().collection("users")
                 .document(user.uid)
                 .setData(data) { error in
@@ -74,7 +73,7 @@ class AuthViewModel: ObservableObject{
     func signOut(){
         try? Auth.auth().signOut()
         self.userSession = nil
-        ApplicationVariables.resetUserID()
+        ApplicationVariables.reserUserDefaults()
     }
     
     func fetchUser(){
@@ -82,7 +81,9 @@ class AuthViewModel: ObservableObject{
         
         self.service.fetchUser(withID: id) { user in
             self.currentUser = user
-            ApplicationVariables.userID = id
+            ApplicationVariables.userID = user.id
+            ApplicationVariables.userFullname = user.fullname
+            ApplicationVariables.userProfileImageLocation = user.profileImageLocation
             print("Current user değeri \(String(describing: self.currentUser))")
         }
     }

@@ -9,9 +9,14 @@ import SwiftUI
 import Kingfisher
 
 struct ReviewView: View {
+    
     let mechanic: Mechanic
+    let viewModel: MechanicDetailViewModel
+    
     @State var text = ""
-    @State var score = 0.0
+    @State var score = 0
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
         VStack{
             HStack{
@@ -47,7 +52,10 @@ struct ReviewView: View {
             Spacer()
             
             Button {
-                
+                self.viewModel.createReviewForMechanic(comment: self.text,
+                                                       mechanicID: self.mechanic.id,
+                                                       score: self.score)
+                self.presentationMode.wrappedValue.dismiss()
             }  label: {
                 Spacer()
                 Text("Paylaş")
@@ -66,25 +74,24 @@ struct ReviewView: View {
     }
 }
 
-struct ReviewView_Previews: PreviewProvider {
-    static var previews: some View {
-        ReviewView(mechanic: Mechanic(about: "Marka araçları üzerinde 10 yıllık deneyime sahibim. 4 yıldır elektromekanik alanında çalışıyorum.",
-                                      address: "Kahramanmaraş",
-                                      avarageScore: 4.5,
-                                      brand: "Ford",
-                                      company: "Kemak A.Ş.",
-                                      education: "Lise",
-                                      email: "mehmetozdemir@gmail.com",
-                                      fullname: "Mehmet Özdemir",
-                                      id: "4guQBJMzd0qevDUPCLSP",
-                                      languages: ["Türkçe"],
-                                      phone: "+905444444444",
-                                      priceList: [Service(service: "aaa", price: 1000)],
-                                      profileImageLocation: "gs://ustanibil-3a48d.appspot.com/erislam.jpg",
-//                                      reviews: [Review(comment: "", userID: "", vote: 5)],
-                                      totalVotes: 1287))
-    }
-}
+//struct ReviewView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ReviewView(mechanic: Mechanic(about: "Marka araçları üzerinde 10 yıllık deneyime sahibim. 4 yıldır elektromekanik alanında çalışıyorum.",
+//                                      address: "Kahramanmaraş",
+//                                      avarageScore: 4.5,
+//                                      brand: "Ford",
+//                                      company: "Kemak A.Ş.",
+//                                      education: "Lise",
+//                                      email: "mehmetozdemir@gmail.com",
+//                                      fullname: "Mehmet Özdemir",
+//                                      id: "4guQBJMzd0qevDUPCLSP",
+//                                      languages: ["Türkçe"],
+//                                      phone: "+905444444444",
+//                                      priceList: [Service(service: "aaa", price: 1000)],
+//                                      profileImageLocation: "gs://ustanibil-3a48d.appspot.com/erislam.jpg",
+//                                      totalVotes: 1287))
+//    }
+//}
 
 extension ReviewView{
     var voteView: some View{

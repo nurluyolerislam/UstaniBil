@@ -185,7 +185,7 @@ struct MechanicDetailView: View {
                 if self.viewModel.showingIndex == 2{
                     VStack(spacing: 15){
                         NavigationLink {
-                            ReviewView(mechanic: self.mechanic)
+                            ReviewView(mechanic: self.mechanic, viewModel: self.viewModel)
                         } label: {
                             Spacer()
                             Text("Deneyimini Paylaş")
@@ -202,20 +202,24 @@ struct MechanicDetailView: View {
                         
                         self.voteView
                         
-                        ForEach(self.viewModel.reviewsForMechanic, id: \.id){ review in
-                            HStack(alignment: .top){
-                                Image(systemName: "person.circle.fill")
-                                    .font(.system(size: 32))
-                                
-                                VStack(alignment: .leading){
-                                    Text(review.userID)
+                        ScrollView{
+                            ForEach(self.viewModel.reviewsForMechanic, id: \.id){ review in
+                                HStack(alignment: .top){
+                                    KFImage(URL(string: review.userProfileImageLocation))
+                                        .resizable()
+                                        .clipShape(Circle())
+                                        .frame(width: 32, height: 32)
+                                    
+                                    VStack(alignment: .leading){
+                                        Text(review.userFullname)
 
-                                    ScoreView(score: Double(review.score))
+                                        ScoreView(score: Double(review.score))
 
-                                    Text(review.comment)
-                                        .font(.footnote)
+                                        Text(review.comment)
+                                            .font(.footnote)
+                                    }
+                                    Spacer()
                                 }
-                                Spacer()
                             }
                         }
                     }

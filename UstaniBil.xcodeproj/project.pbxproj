@@ -31,6 +31,7 @@
 		58A89E5E2987323A0068BE49 /* MechanicDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A89E5D2987323A0068BE49 /* MechanicDetailViewModel.swift */; };
 		58A89E60298734BC0068BE49 /* AppoinmentRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A89E5F298734BC0068BE49 /* AppoinmentRequestView.swift */; };
 		58A89E642987D4260068BE49 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A89E632987D4260068BE49 /* Review.swift */; };
+		58A89E662987EDCD0068BE49 /* ReviewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A89E652987EDCD0068BE49 /* ReviewService.swift */; };
 		58B7BD0F2909CD06000F50FF /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B7BD0E2909CD06000F50FF /* MainTabView.swift */; };
 		58B7BD172909CD92000F50FF /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B7BD162909CD92000F50FF /* ProfileView.swift */; };
 		58BC466D2902F49F00A6ECBC /* UstaniBilApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BC466C2902F49F00A6ECBC /* UstaniBilApp.swift */; };
@@ -74,6 +75,7 @@
 		58A89E5D2987323A0068BE49 /* MechanicDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MechanicDetailViewModel.swift; sourceTree = "<group>"; };
 		58A89E5F298734BC0068BE49 /* AppoinmentRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppoinmentRequestView.swift; sourceTree = "<group>"; };
 		58A89E632987D4260068BE49 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		58A89E652987EDCD0068BE49 /* ReviewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewService.swift; sourceTree = "<group>"; };
 		58B7BD0E2909CD06000F50FF /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		58B7BD162909CD92000F50FF /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		58BC46692902F49F00A6ECBC /* UstaniBil.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UstaniBil.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -177,6 +179,7 @@
 				584DE6822938B84D002AED69 /* MechanicsService.swift */,
 				589FB6B2298119A700392E51 /* FirebaseService.swift */,
 				58A89E5729869C9D0068BE49 /* AppoinmentsService.swift */,
+				58A89E652987EDCD0068BE49 /* ReviewService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 				58BC46A82903231100A6ECBC /* UserService.swift in Sources */,
 				589FB6AF29759CB200392E51 /* ReviewView.swift in Sources */,
 				584DE6852938B9A5002AED69 /* Mechanic.swift in Sources */,
+				58A89E662987EDCD0068BE49 /* ReviewService.swift in Sources */,
 				58A89E642987D4260068BE49 /* Review.swift in Sources */,
 				58BC466F2902F49F00A6ECBC /* ContentView.swift in Sources */,
 				589FB6A2295DAE0100392E51 /* MechanicDetailView.swift in Sources */,
