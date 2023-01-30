@@ -12,8 +12,8 @@ struct AppoinmentRequestView: View {
     let viewModel: MechanicDetailViewModel
     let mechanic: Mechanic
     
-    @State var selectedService: String = ""
-    @State var selectedDate: Date = Date.now
+    @State var selectedService = "Listede Yok"
+    @State var selectedDate: Date = Calendar.current.date(byAdding: .hour, value: 2, to: Date()) ?? Date.now
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
@@ -22,6 +22,7 @@ struct AppoinmentRequestView: View {
                 
                 HStack{
                     Image(systemName: "person")
+                        .foregroundColor(.accentColor)
                     VStack(alignment: .leading){
                         Text(self.mechanic.fullname)
                         Text("Usta")
@@ -31,18 +32,16 @@ struct AppoinmentRequestView: View {
                 
                 HStack{
                     Image(systemName: "calendar")
-                    DatePicker(selection: self.$selectedDate) {
-                        VStack(alignment: .leading){
-                            Text(self.selectedDate.formatted(Date.FormatStyle().day(.twoDigits).month(.twoDigits).year()).description)
-                            Text(self.selectedDate.formatted(Date.FormatStyle().hour(.twoDigits(amPM: .omitted)).minute(.twoDigits)).description)
-                                .font(.footnote).foregroundColor(.gray)
-                        }
-                        .datePickerStyle(.wheel)
-                    }
+                        .foregroundColor(.accentColor)
+                    DatePicker( "Randevu Tarihi Seç",
+                                selection: self.$selectedDate,
+                                in: Date()...,
+                                displayedComponents: [.date, .hourAndMinute])
                 }
                 
                 HStack{
                     Image(systemName: "mappin.and.ellipse")
+                        .foregroundColor(.accentColor)
                     VStack(alignment: .leading){
                         Text("Kahramanmaraş")
                         Text("Sana 1 km uzaklıkta")
@@ -54,6 +53,7 @@ struct AppoinmentRequestView: View {
             
             Section{
                 Picker("İşlem Seçiniz", selection: self.$selectedService) {
+                    Text("Listede Yok").tag("Listede Yok")
                     ForEach(self.mechanic.priceList, id: \.self){ service in
                         Text(service.service).tag(service.service)
                     }
@@ -66,9 +66,9 @@ struct AppoinmentRequestView: View {
                                                  mechanicID: self.mechanic.id)
                 self.presentationMode.wrappedValue.dismiss()
             } label: {
-                Text("Randevu Talebi Gönder")
+                Text("Randevu Talebini Onayla")
             }
-
+            
         }
     }
 }
@@ -76,6 +76,21 @@ struct AppoinmentRequestView: View {
 
 //struct AppoinmentRequestView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        AppoinmentRequestView()
+//        AppoinmentRequestView(viewModel: MechanicDetailViewModel(),
+//                              mechanic: Mechanic(about: "Marka araçları üzerinde 10 yıllık deneyime sahibim. 4 yıldır elektromekanik alanında çalışıyorum.",
+//                                                 address: "Kahramanmaraş",
+//                                                 avarageScore: 4.5,
+//                                                 brand: "Ford",
+//                                                 company: "Kemak A.Ş.",
+//                                                 education: "Lise",
+//                                                 email: "mehmetozdemir@gmail.com",
+//                                                 fullname: "Mehmet Özdemir",
+//                                                 id: "4guQBJMzd0qevDUPCLSP",
+//                                                 languages: ["Türkçe"],
+//                                                 phone: "+905444444444",
+//                                                 priceList: [Service(service: "aaa", price: 1000)],
+//                                                 profileImageLocation: "gs://ustanibil-3a48d.appspot.com/erislam.jpg",
+//                                                 reviews: [Review(comment: "", userID: "", vote: 5)],
+//                                                 totalVotes: 1287))
 //    }
 //}

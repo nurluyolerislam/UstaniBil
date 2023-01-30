@@ -41,4 +41,18 @@ class MechanicsService{
             }
     }
     
+    func fetchReviewsForMechanic(id: String, completion: @escaping([Review]) -> Void){
+        Firestore.firestore().collection("reviews")
+            .whereField("mechanic_id", isEqualTo: id)
+            .getDocuments { snapshot, error in
+                if let error = error{
+                    print("DEBUG: Failed to fetch reviews for mechanic wih error \(error.localizedDescription)")
+                }
+                
+                guard let documents = snapshot?.documents else{return}
+                let reviews = documents.compactMap({try? $0.data(as: Review.self)})
+                completion(reviews)
+            }
+    }
+    
 }

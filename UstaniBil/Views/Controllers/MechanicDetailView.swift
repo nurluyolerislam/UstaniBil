@@ -202,23 +202,25 @@ struct MechanicDetailView: View {
                         
                         self.voteView
                         
-                        ForEach(self.mechanic.reviews, id: \.self){ review in
+                        ForEach(self.viewModel.reviewsForMechanic, id: \.id){ review in
                             HStack(alignment: .top){
                                 Image(systemName: "person.circle.fill")
                                     .font(.system(size: 32))
                                 
                                 VStack(alignment: .leading){
                                     Text(review.userID)
-                                    
-                                    ScoreView(score: Double(review.vote))
-                                    
+
+                                    ScoreView(score: Double(review.score))
+
                                     Text(review.comment)
                                         .font(.footnote)
                                 }
-                                
                                 Spacer()
                             }
                         }
+                    }
+                    .onAppear {
+                        self.viewModel.fetchReviewsForMechanic(mechanicID: self.mechanic.id)
                     }
                 }
             }
@@ -250,7 +252,7 @@ struct MechanicDetailView_Previews: PreviewProvider {
                                               phone: "+905444444444",
                                               priceList: [Service(service: "aaa", price: 1000)],
                                               profileImageLocation: "gs://ustanibil-3a48d.appspot.com/erislam.jpg",
-                                              reviews: [Review(comment: "aaa", userID: "aaa", vote: 5)],
+//                                              reviews: [Review(comment: "aaa", userID: "aaa", vote: 5)],
                                               totalVotes: 1287))
     }
 }
@@ -259,10 +261,10 @@ extension MechanicDetailView{
     var voteView: some View{
         HStack{
             VStack{
-                Text("\(self.mechanic.avarageScore, specifier: "%.1f") / 5")
+                Text("\(self.viewModel.avarageScore, specifier: "%.1f") / 5")
                     .font(.title)
                 
-                ScoreView(score: self.mechanic.avarageScore)
+                ScoreView(score: self.viewModel.avarageScore)
                 
                 Text("\(self.mechanic.totalVotes) değerlendirme")
                     .foregroundColor(.gray)
