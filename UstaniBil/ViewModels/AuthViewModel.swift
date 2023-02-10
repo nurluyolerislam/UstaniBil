@@ -84,7 +84,6 @@ class AuthViewModel: ObservableObject{
             ApplicationVariables.userID = user.id
             ApplicationVariables.userFullname = user.fullname
             ApplicationVariables.userProfileImageLocation = user.profileImageLocation
-            print("Current user değeri \(String(describing: self.currentUser))")
         }
     }
     

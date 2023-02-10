@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct AppoinmentCell: View{
+    
     let appoinment: Appoinment
+    @StateObject var viewModel = AppoinmentCellViewModel()
+    
     var body: some View{
         HStack(alignment: .top){
             
@@ -27,11 +30,14 @@ struct AppoinmentCell: View{
                         .modifier(AppoinmentStatusModifier())
                 }
                     
-                Text(self.appoinment.description)
+                Text(self.appoinment.service)
                     .bold()
                 
-                Text(self.appoinment.mechanicID)
+                Text(self.viewModel.mechanicName)
                     .font(.footnote)
+                    .onAppear {
+                        self.viewModel.fetchMechanicNameFromMechanicReference(ref: self.appoinment.mechanicRef)
+                    }
             }
             
             Spacer()

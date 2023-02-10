@@ -126,7 +126,7 @@ struct MechanicDetailView: View {
                 }
                 
                 if self.viewModel.showingIndex == 0{
-                    ForEach(self.mechanic.priceList, id: \.self){ service in
+                    ForEach(self.mechanic.services, id: \.self){ service in
                         HStack{
                             Text(service.service)
                             Spacer()
@@ -205,13 +205,13 @@ struct MechanicDetailView: View {
                         ScrollView{
                             ForEach(self.viewModel.reviewsForMechanic, id: \.id){ review in
                                 HStack(alignment: .top){
-                                    KFImage(URL(string: review.userProfileImageLocation))
+                                    KFImage(URL(string: review.userRef.documentID))
                                         .resizable()
                                         .clipShape(Circle())
                                         .frame(width: 32, height: 32)
-                                    
+
                                     VStack(alignment: .leading){
-                                        Text(review.userFullname)
+                                        Text(review.userRef.documentID)
 
                                         ScoreView(score: Double(review.score))
 
@@ -241,25 +241,24 @@ struct MechanicDetailView: View {
     }
 }
 
-struct MechanicDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        MechanicDetailView(mechanic: Mechanic(about: "Marka araçları üzerinde 10 yıllık deneyime sahibim. 4 yıldır elektromekanik alanında çalışıyorum.",
-                                              address: "Kahramanmaraş",
-                                              avarageScore: 4.5,
-                                              brand: "Ford",
-                                              company: "Kemak A.Ş.",
-                                              education: "Lise",
-                                              email: "mehmetozdemir@gmail.com",
-                                              fullname: "Mehmet Özdemir",
-                                              id: "4guQBJMzd0qevDUPCLSP",
-                                              languages: ["Türkçe"],
-                                              phone: "+905444444444",
-                                              priceList: [Service(service: "aaa", price: 1000)],
-                                              profileImageLocation: "gs://ustanibil-3a48d.appspot.com/erislam.jpg",
-//                                              reviews: [Review(comment: "aaa", userID: "aaa", vote: 5)],
-                                              totalVotes: 1287))
-    }
-}
+//struct MechanicDetailView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MechanicDetailView(mechanic: Mechanic(about: "Marka araçları üzerinde 10 yıllık deneyime sahibim. 4 yıldır elektromekanik alanında çalışıyorum.",
+//                                              address: "Kahramanmaraş",
+//                                              avarageScore: 4.5,
+//                                              brand: "Ford",
+//                                              company: "Kemak A.Ş.",
+//                                              education: "Lise",
+//                                              email: "mehmetozdemir@gmail.com",
+//                                              fullname: "Mehmet Özdemir",
+//                                              id: "4guQBJMzd0qevDUPCLSP",
+//                                              languages: ["Türkçe"],
+//                                              phone: "+905444444444",
+//                                              profileImageLocation: "gs://ustanibil-3a48d.appspot.com/erislam.jpg",
+//                                              services: [Service(price: 1000, service: "aaa")],
+//                                              totalVotes: 1287))
+//    }
+//}
 
 extension MechanicDetailView{
     var voteView: some View{

@@ -5,24 +5,21 @@
 //  Created by Erislam Nurluyol on 30.01.2023.
 //
 
-import Foundation
+import Firebase
 
 struct Review: Decodable{
     let comment: String
     let id: String
-    let mechanicID: String
+    let mechanicRef: DocumentReference
     let score: Int
-    let userFullname: String
-    let userID: String
-    let userProfileImageLocation: String
+    let userRef: DocumentReference
     
     enum CodingKeys: String, CodingKey {
         case comment
         case id
-        case mechanicID = "mechanic_id"
+        case mechanicRef = "mechanic_ref"
         case score
-        case userFullname = "user_fullname"
-        case userID = "user_id"
-        case userProfileImageLocation = "user_profile_image_location"
+        case userRef = "user_ref"
     }
+    
 }

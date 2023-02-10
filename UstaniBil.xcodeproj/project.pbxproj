@@ -23,7 +23,6 @@
 		589FB6AB296B07D800392E51 /* AppoinmentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589FB6AA296B07D800392E51 /* AppoinmentsViewModel.swift */; };
 		589FB6AF29759CB200392E51 /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589FB6AE29759CB200392E51 /* ReviewView.swift */; };
 		589FB6B12981186E00392E51 /* ApplicationVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589FB6B02981186E00392E51 /* ApplicationVariables.swift */; };
-		589FB6B3298119A700392E51 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589FB6B2298119A700392E51 /* FirebaseService.swift */; };
 		589FB6B62981269300392E51 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 589FB6B52981269300392E51 /* Kingfisher */; };
 		58A89E5829869C9D0068BE49 /* AppoinmentsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A89E5729869C9D0068BE49 /* AppoinmentsService.swift */; };
 		58A89E5A2986B6E80068BE49 /* AppoinmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A89E592986B6E80068BE49 /* AppoinmentCell.swift */; };
@@ -32,6 +31,10 @@
 		58A89E60298734BC0068BE49 /* AppoinmentRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A89E5F298734BC0068BE49 /* AppoinmentRequestView.swift */; };
 		58A89E642987D4260068BE49 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A89E632987D4260068BE49 /* Review.swift */; };
 		58A89E662987EDCD0068BE49 /* ReviewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A89E652987EDCD0068BE49 /* ReviewService.swift */; };
+		58A89E68298966C20068BE49 /* AppoinmentCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A89E67298966C20068BE49 /* AppoinmentCellViewModel.swift */; };
+		58A89E6A298C4E0D0068BE49 /* MechanicRegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A89E69298C4E0D0068BE49 /* MechanicRegistrationView.swift */; };
+		58A89E6C298C57B30068BE49 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A89E6B298C57B30068BE49 /* Extensions.swift */; };
+		58A89E6E298DDE4C0068BE49 /* MechanicRegistrationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A89E6D298DDE4C0068BE49 /* MechanicRegistrationDetailView.swift */; };
 		58B7BD0F2909CD06000F50FF /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B7BD0E2909CD06000F50FF /* MainTabView.swift */; };
 		58B7BD172909CD92000F50FF /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B7BD162909CD92000F50FF /* ProfileView.swift */; };
 		58BC466D2902F49F00A6ECBC /* UstaniBilApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BC466C2902F49F00A6ECBC /* UstaniBilApp.swift */; };
@@ -68,7 +71,6 @@
 		589FB6AA296B07D800392E51 /* AppoinmentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppoinmentsViewModel.swift; sourceTree = "<group>"; };
 		589FB6AE29759CB200392E51 /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
 		589FB6B02981186E00392E51 /* ApplicationVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationVariables.swift; sourceTree = "<group>"; };
-		589FB6B2298119A700392E51 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		58A89E5729869C9D0068BE49 /* AppoinmentsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppoinmentsService.swift; sourceTree = "<group>"; };
 		58A89E592986B6E80068BE49 /* AppoinmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppoinmentCell.swift; sourceTree = "<group>"; };
 		58A89E5B2986FEB50068BE49 /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
@@ -76,6 +78,10 @@
 		58A89E5F298734BC0068BE49 /* AppoinmentRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppoinmentRequestView.swift; sourceTree = "<group>"; };
 		58A89E632987D4260068BE49 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		58A89E652987EDCD0068BE49 /* ReviewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewService.swift; sourceTree = "<group>"; };
+		58A89E67298966C20068BE49 /* AppoinmentCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppoinmentCellViewModel.swift; sourceTree = "<group>"; };
+		58A89E69298C4E0D0068BE49 /* MechanicRegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MechanicRegistrationView.swift; sourceTree = "<group>"; };
+		58A89E6B298C57B30068BE49 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		58A89E6D298DDE4C0068BE49 /* MechanicRegistrationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MechanicRegistrationDetailView.swift; sourceTree = "<group>"; };
 		58B7BD0E2909CD06000F50FF /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		58B7BD162909CD92000F50FF /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		58BC46692902F49F00A6ECBC /* UstaniBil.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UstaniBil.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,6 +130,7 @@
 				589FB6AA296B07D800392E51 /* AppoinmentsViewModel.swift */,
 				58545DAB298549E9006453DE /* HomeViewModel.swift */,
 				58A89E5D2987323A0068BE49 /* MechanicDetailViewModel.swift */,
+				58A89E67298966C20068BE49 /* AppoinmentCellViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -147,6 +154,7 @@
 				5849CC6229488538006BCADA /* HomeView.swift */,
 				58BC46AB290326CC00A6ECBC /* LoginView.swift */,
 				58BC46AF29032E6800A6ECBC /* RegistrationView.swift */,
+				58A89E69298C4E0D0068BE49 /* MechanicRegistrationView.swift */,
 				58B7BD162909CD92000F50FF /* ProfileView.swift */,
 				589FB69B2959AB6000392E51 /* NotificationsView.swift */,
 				589FB69D2959ABCF00392E51 /* AppoinmentsView.swift */,
@@ -155,6 +163,7 @@
 				589FB6AE29759CB200392E51 /* ReviewView.swift */,
 				58545DA929854591006453DE /* StartupScreen.swift */,
 				58A89E5F298734BC0068BE49 /* AppoinmentRequestView.swift */,
+				58A89E6D298DDE4C0068BE49 /* MechanicRegistrationDetailView.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -177,7 +186,6 @@
 			children = (
 				58BC46A72903231100A6ECBC /* UserService.swift */,
 				584DE6822938B84D002AED69 /* MechanicsService.swift */,
-				589FB6B2298119A700392E51 /* FirebaseService.swift */,
 				58A89E5729869C9D0068BE49 /* AppoinmentsService.swift */,
 				58A89E652987EDCD0068BE49 /* ReviewService.swift */,
 			);
@@ -236,6 +244,7 @@
 		58BC469F2903209400A6ECBC /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				58A89E6B298C57B30068BE49 /* Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -343,16 +352,18 @@
 				5849CC6329488538006BCADA /* HomeView.swift in Sources */,
 				58B7BD0F2909CD06000F50FF /* MainTabView.swift in Sources */,
 				58545DAC298549E9006453DE /* HomeViewModel.swift in Sources */,
+				58A89E68298966C20068BE49 /* AppoinmentCellViewModel.swift in Sources */,
 				589FB6B12981186E00392E51 /* ApplicationVariables.swift in Sources */,
 				58BC46A82903231100A6ECBC /* UserService.swift in Sources */,
 				589FB6AF29759CB200392E51 /* ReviewView.swift in Sources */,
 				584DE6852938B9A5002AED69 /* Mechanic.swift in Sources */,
 				58A89E662987EDCD0068BE49 /* ReviewService.swift in Sources */,
+				58A89E6C298C57B30068BE49 /* Extensions.swift in Sources */,
 				58A89E642987D4260068BE49 /* Review.swift in Sources */,
 				58BC466F2902F49F00A6ECBC /* ContentView.swift in Sources */,
 				589FB6A2295DAE0100392E51 /* MechanicDetailView.swift in Sources */,
-				589FB6B3298119A700392E51 /* FirebaseService.swift in Sources */,
 				589FB69C2959AB6000392E51 /* NotificationsView.swift in Sources */,
+				58A89E6A298C4E0D0068BE49 /* MechanicRegistrationView.swift in Sources */,
 				58A89E60298734BC0068BE49 /* AppoinmentRequestView.swift in Sources */,
 				584DE6892939CEE2002AED69 /* MechanicCell.swift in Sources */,
 				589FB6A9296B04B400392E51 /* Appoinment.swift in Sources */,
@@ -364,6 +375,7 @@
 				58BC46A6290321AD00A6ECBC /* AuthViewModel.swift in Sources */,
 				589FB6AB296B07D800392E51 /* AppoinmentsViewModel.swift in Sources */,
 				58A89E5C2986FEB50068BE49 /* ScoreView.swift in Sources */,
+				58A89E6E298DDE4C0068BE49 /* MechanicRegistrationDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

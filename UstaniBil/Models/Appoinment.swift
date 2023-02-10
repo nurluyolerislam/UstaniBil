@@ -10,18 +10,19 @@ import FirebaseFirestore
 struct Appoinment: Decodable, Identifiable{
     
     let date: Timestamp
-    let description: String
     let id: String
-    let mechanicID: String
-    var status: String
-    let userID: String
+    let mechanicRef: DocumentReference
+    let service: String
+    let status: String
+    let userRef: DocumentReference
     
     enum CodingKeys: String,CodingKey {
         case date
-        case description
         case id
-        case mechanicID = "mechanic_id"
+        case mechanicRef = "mechanic_ref"
+        case service
         case status
-        case userID = "user_id"
+        case userRef = "user_ref"
     }
+    
 }

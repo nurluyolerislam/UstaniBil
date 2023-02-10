@@ -59,7 +59,7 @@ struct ProfileView: View {
             
             Section {
                 HStack(alignment: .top){
-                    Image("ford")
+                    Image(systemName: "car")
                         .resizable()
                         .clipShape(Circle())
                         .frame(width: 40, height: 40)
@@ -117,9 +117,6 @@ struct ProfileView: View {
 
             }
             
-        }
-        .onAppear {
-            print("DEBUG: Current User \(self.authViewModel.currentUser)")
         }
     }
 }

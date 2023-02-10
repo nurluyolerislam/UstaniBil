@@ -10,8 +10,9 @@ import Firebase
 struct AppoinmentsService{
     
     func fetchAppoinments(completion: @escaping([Appoinment]) -> Void){
+        let userRef = Firestore.firestore().collection("users").document(ApplicationVariables.userID)
         Firestore.firestore().collection("appoinments")
-            .whereField("user_id", isEqualTo: ApplicationVariables.userID)
+            .whereField("user_ref", isEqualTo: userRef)
             .getDocuments { snapshot, error in
                 
                 if let error = error{
@@ -26,13 +27,15 @@ struct AppoinmentsService{
             }
     }
     
-    func requestAppoinment(date: Date, description: String, mechanicID: String){
+    func requestAppoinment(date: Date, service: String, mechanicID: String){
+        let mechanicRef = Firestore.firestore().collection("mechanics").document(mechanicID)
+        let userRef = Firestore.firestore().collection("users").document(ApplicationVariables.userID)
         let data = [
             "date" : Timestamp(date: date),
-            "description" : description,
-            "mechanic_id" : mechanicID,
+            "mechanic_ref" : mechanicRef,
+            "service" : service,
             "status" : "waiting",
-            "user_id" : ApplicationVariables.userID
+            "user_ref" : userRef
         ] as [String : Any]
         
         var ref: DocumentReference? = nil

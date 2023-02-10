@@ -20,9 +20,8 @@ struct Mechanic: Identifiable, Decodable{
     let id: String
     let languages: [String]
     let phone: String
-    let priceList: [Service]
     let profileImageLocation: String
-//    let reviews: [Review]
+    let services: [Service]
     let totalVotes:Int
     
     enum CodingKeys: String, CodingKey {
@@ -37,31 +36,19 @@ struct Mechanic: Identifiable, Decodable{
         case id
         case languages
         case phone
-        case priceList = "price_list"
         case profileImageLocation = "profile_image_location"
-//        case reviews
+        case services
         case totalVotes = "total_votes"
     }
 }
 
+
 struct Service: Hashable, Decodable{
-    let service: String
     let price: Int
+    let service: String
     
     enum CodingKeys: String, CodingKey {
-        case service
         case price
+        case service
     }
 }
-
-//struct Review: Hashable, Decodable{
-//    let comment: String
-//    let userID: String
-//    let vote: Int
-//
-//    enum CodingKeys: String, CodingKey {
-//        case comment
-//        case userID = "user_id"
-//        case vote
-//    }
-//}

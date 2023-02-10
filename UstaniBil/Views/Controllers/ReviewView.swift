@@ -87,8 +87,8 @@ struct ReviewView: View {
 //                                      id: "4guQBJMzd0qevDUPCLSP",
 //                                      languages: ["Türkçe"],
 //                                      phone: "+905444444444",
-//                                      priceList: [Service(service: "aaa", price: 1000)],
 //                                      profileImageLocation: "gs://ustanibil-3a48d.appspot.com/erislam.jpg",
+//                                      services: [Service(service: "aaa", price: 1000)],
 //                                      totalVotes: 1287))
 //    }
 //}
