@@ -13,41 +13,37 @@ struct AppoinmentsView: View {
     
     var body: some View {
         Form{
-            if let confirmedAppoinments = self.viewModel.confirmedAppoinments{
-                if !confirmedAppoinments.isEmpty{
+                if !self.viewModel.confirmedAppoinments.isEmpty{
                     Section {
-                        ForEach(confirmedAppoinments) { appoinment in
+                        ForEach(self.viewModel.confirmedAppoinments) { appoinment in
                             AppoinmentCell(appoinment: appoinment)
                         }
                     } header: {
                         Text("Yaklaşan Randevularınız")
                     }
                 }
-            }
             
-            if let waitingAppoinments = self.viewModel.waitingAppoinments{
-                if !waitingAppoinments.isEmpty{
+            
+                if !self.viewModel.waitingAppoinments.isEmpty{
                     Section {
-                        ForEach(waitingAppoinments) { appoinment in
+                        ForEach(self.viewModel.waitingAppoinments) { appoinment in
                             AppoinmentCell(appoinment: appoinment)
                         }
                     } header: {
                         Text("Onay Bekleyen Randevularınız")
                     }
                 }
-            }
             
-            if let finishedAppoinments = self.viewModel.finishedAppoinments{
-                if !finishedAppoinments.isEmpty{
+            
+                if !self.viewModel.finishedAppoinments.isEmpty{
                     Section {
-                        ForEach(finishedAppoinments) { appoinment in
+                        ForEach(self.viewModel.finishedAppoinments) { appoinment in
                             AppoinmentCell(appoinment: appoinment)
                         }
                     } header: {
                         Text("Geçmiş Randevularınız")
                     }
                 }
-            }
             
             if self.viewModel.confirmedAppoinments.isEmpty && self.viewModel.waitingAppoinments.isEmpty && self.viewModel.finishedAppoinments.isEmpty{
                 Text("Henüz bir randevunuz bulunmamaktadır.")
