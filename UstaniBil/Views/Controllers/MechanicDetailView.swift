@@ -223,9 +223,7 @@ struct MechanicDetailView: View {
                             }
                         }
                     }
-                    .onAppear {
-                        self.viewModel.fetchReviewsForMechanic(mechanicID: self.mechanic.id)
-                    }
+                    //
                 }
             }
             .padding()
@@ -235,6 +233,9 @@ struct MechanicDetailView: View {
             }
             
             Spacer()
+        }
+        .onAppear {
+            self.viewModel.fetchReviewsForMechanic(mechanicID: self.mechanic.id)
         }
         .navigationTitle(self.mechanic.fullname)
         .padding()
