@@ -10,7 +10,7 @@ import Kingfisher
 
 struct MechanicDetailView: View {
     
-    let mechanic: Mechanic
+    let mechanic: MechanicInAppModel
     
     @StateObject var viewModel = MechanicDetailViewModel()
     
@@ -137,7 +137,7 @@ struct MechanicDetailView: View {
                 }
                 
                 if self.viewModel.showingIndex == 1{
-                    VStack(alignment:.leading ,spacing: 15){
+                    VStack(spacing: 15){
                         
                         HStack(alignment: .top){
                             Image(systemName: "person")
@@ -147,6 +147,7 @@ struct MechanicDetailView: View {
                                     .bold()
                                 Text(self.mechanic.about)
                             }
+                            Spacer()
                         }
 
                         HStack(alignment: .top){
@@ -157,6 +158,7 @@ struct MechanicDetailView: View {
                                     .bold()
                                 Text(self.mechanic.languages.joined(separator: ", "))
                             }
+                            Spacer()
                         }
 
                         HStack(alignment: .top){
@@ -167,6 +169,7 @@ struct MechanicDetailView: View {
                                     .bold()
                                 Text("Lise")
                             }
+                            Spacer()
                         }
 
                         HStack(alignment: .top){
@@ -177,6 +180,7 @@ struct MechanicDetailView: View {
                                     .bold()
                                 Text(self.mechanic.email)
                             }
+                            Spacer()
                         }
                         
                     }
@@ -205,13 +209,13 @@ struct MechanicDetailView: View {
                         ScrollView{
                             ForEach(self.viewModel.reviewsForMechanic, id: \.id){ review in
                                 HStack(alignment: .top){
-                                    KFImage(URL(string: review.userRef.documentID))
+                                    KFImage(URL(string: review.userProfileImageLocation))
                                         .resizable()
                                         .clipShape(Circle())
                                         .frame(width: 32, height: 32)
 
                                     VStack(alignment: .leading){
-                                        Text(review.userRef.documentID)
+                                        Text(review.userFullname)
 
                                         ScoreView(score: Double(review.score))
 
@@ -236,6 +240,9 @@ struct MechanicDetailView: View {
         }
         .onAppear {
             self.viewModel.fetchReviewsForMechanic(mechanicID: self.mechanic.id)
+        }
+        .onDisappear{
+            self.viewModel.removeReviews()
         }
         .navigationTitle(self.mechanic.fullname)
         .padding()
@@ -270,7 +277,7 @@ extension MechanicDetailView{
                 
                 ScoreView(score: self.viewModel.avarageScore)
                 
-                Text("\(self.mechanic.totalVotes) değerlendirme")
+                Text("\(self.viewModel.totalVotes) değerlendirme")
                     .foregroundColor(.gray)
                     .font(.footnote)
             }

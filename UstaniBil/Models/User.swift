@@ -5,6 +5,8 @@
 //  Created by Erislam Nurluyol on 21.10.2022.
 //
 
+import Foundation
+
 struct User: Decodable{
     let address: String
     let cars: [Car]
@@ -27,13 +29,15 @@ struct User: Decodable{
     }
 }
 
-struct Car: Decodable{
+struct Car: Decodable, Identifiable{
     let brand: String
+    let id: String = UUID().uuidString
     let model: String
     let year: String
     
     enum CodingKeys: CodingKey {
         case brand
+        case id
         case model
         case year
     }

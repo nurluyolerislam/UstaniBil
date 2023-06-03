@@ -46,7 +46,7 @@ struct ProfileView: View {
                             .padding(6)
                             .background {
                                 RoundedRectangle(cornerRadius: 20)
-//                                    .fill(.green)
+                                //                                    .fill(.green)
                                     .foregroundColor(.accentColor)
                             }
                     }
@@ -58,37 +58,61 @@ struct ProfileView: View {
             }
             
             Section {
-                HStack(alignment: .top){
-                    Image(systemName: "car")
-                        .resizable()
-                        .clipShape(Circle())
-                        .frame(width: 40, height: 40)
-                    
-                    VStack(alignment: .leading){
-                        Text("\(self.authViewModel.currentUser?.cars.first?.brand ?? "") \(self.authViewModel.currentUser?.cars.first?.model ?? "")")
-                            .bold()
-                        
-                        Text(self.authViewModel.currentUser?.cars.first?.year ?? "")
-                            .font(.footnote)
+                if let cars = self.authViewModel.currentUser?.cars{
+                    ForEach(cars, id: \.id){ car in
+                        CarListCard(car: car)
                     }
-                    
+                }
+                HStack{
                     Spacer()
-                    
                     Button {
-                        
+                        // TODO: Araba ekleme
                     } label: {
-                        Text("Düzenle")
+                        Text("Araba Ekle")
                             .foregroundColor(.white)
                             .font(.footnote)
                             .padding(6)
                             .background {
                                 RoundedRectangle(cornerRadius: 20)
-//                                    .fill(.green)
+                                //                                    .fill(.green)
                                     .foregroundColor(.accentColor)
                             }
                     }
                     .buttonStyle(.plain)
+                    Spacer()
                 }
+                
+                //                HStack(alignment: .top){
+                //                    Image(systemName: "car")
+                //                        .resizable()
+                //                        .clipShape(Circle())
+                //                        .frame(width: 40, height: 40)
+                //
+                //                    VStack(alignment: .leading){
+                //                        Text("\(self.authViewModel.currentUser?.cars.first?.brand ?? "") \(self.authViewModel.currentUser?.cars.first?.model ?? "")")
+                //                            .bold()
+                //
+                //                        Text(self.authViewModel.currentUser?.cars.first?.year ?? "")
+                //                            .font(.footnote)
+                //                    }
+                //
+                //                    Spacer()
+                //
+                //                    Button {
+                //
+                //                    } label: {
+                //                        Text("Düzenle")
+                //                            .foregroundColor(.white)
+                //                            .font(.footnote)
+                //                            .padding(6)
+                //                            .background {
+                //                                RoundedRectangle(cornerRadius: 20)
+                ////                                    .fill(.green)
+                //                                    .foregroundColor(.accentColor)
+                //                            }
+                //                    }
+                //                    .buttonStyle(.plain)
+                //                }
             } header: {
                 Text("Arabaların")
             }
@@ -114,7 +138,7 @@ struct ProfileView: View {
                     Text("Çıkış Yap")
                         .foregroundColor(.red)
                 }
-
+                
             }
             
         }
@@ -124,5 +148,44 @@ struct ProfileView: View {
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
         ProfileView()
+    }
+}
+
+struct CarListCard: View{
+    
+    let car: Car
+    
+    var body: some View{
+        HStack(alignment: .top){
+            Image(systemName: "car")
+                .resizable()
+                .clipShape(Circle())
+                .frame(width: 40, height: 40)
+            
+            VStack(alignment: .leading){
+                Text("\(self.car.brand) \(self.car.model)")
+                    .bold()
+                
+                Text(self.car.year)
+                    .font(.footnote)
+            }
+            
+            Spacer()
+            
+            Button {
+                
+            } label: {
+                Text("Düzenle")
+                    .foregroundColor(.white)
+                    .font(.footnote)
+                    .padding(6)
+                    .background {
+                        RoundedRectangle(cornerRadius: 20)
+                        //                                    .fill(.green)
+                            .foregroundColor(.accentColor)
+                    }
+            }
+            .buttonStyle(.plain)
+        }
     }
 }

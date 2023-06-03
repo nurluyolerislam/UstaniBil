@@ -50,6 +50,8 @@
 		58BC46AA2903236200A6ECBC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BC46A92903236200A6ECBC /* User.swift */; };
 		58BC46AC290326CC00A6ECBC /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BC46AB290326CC00A6ECBC /* LoginView.swift */; };
 		58BC46B029032E6800A6ECBC /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BC46AF29032E6800A6ECBC /* RegistrationView.swift */; };
+		58C278C32A1EA91C006853B8 /* ReviewInAppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C278C22A1EA91C006853B8 /* ReviewInAppModel.swift */; };
+		58C278C52A1F9573006853B8 /* MechanicInAppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C278C42A1F9573006853B8 /* MechanicInAppModel.swift */; };
 		58E9CFF529033558004CBAB3 /* CustomInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E9CFF429033557004CBAB3 /* CustomInputField.swift */; };
 		58E9CFF729033A75004CBAB3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 58E9CFF629033A74004CBAB3 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
@@ -94,6 +96,8 @@
 		58BC46A92903236200A6ECBC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		58BC46AB290326CC00A6ECBC /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		58BC46AF29032E6800A6ECBC /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
+		58C278C22A1EA91C006853B8 /* ReviewInAppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewInAppModel.swift; sourceTree = "<group>"; };
+		58C278C42A1F9573006853B8 /* MechanicInAppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MechanicInAppModel.swift; sourceTree = "<group>"; };
 		58E9CFF429033557004CBAB3 /* CustomInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputField.swift; sourceTree = "<group>"; };
 		58E9CFF629033A74004CBAB3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -142,6 +146,8 @@
 				584DE6842938B9A5002AED69 /* Mechanic.swift */,
 				589FB6A8296B04B400392E51 /* Appoinment.swift */,
 				58A89E632987D4260068BE49 /* Review.swift */,
+				58C278C22A1EA91C006853B8 /* ReviewInAppModel.swift */,
+				58C278C42A1F9573006853B8 /* MechanicInAppModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -359,6 +365,7 @@
 				584DE6852938B9A5002AED69 /* Mechanic.swift in Sources */,
 				58A89E662987EDCD0068BE49 /* ReviewService.swift in Sources */,
 				58A89E6C298C57B30068BE49 /* Extensions.swift in Sources */,
+				58C278C52A1F9573006853B8 /* MechanicInAppModel.swift in Sources */,
 				58A89E642987D4260068BE49 /* Review.swift in Sources */,
 				58BC466F2902F49F00A6ECBC /* ContentView.swift in Sources */,
 				589FB6A2295DAE0100392E51 /* MechanicDetailView.swift in Sources */,
@@ -367,6 +374,7 @@
 				58A89E60298734BC0068BE49 /* AppoinmentRequestView.swift in Sources */,
 				584DE6892939CEE2002AED69 /* MechanicCell.swift in Sources */,
 				589FB6A9296B04B400392E51 /* Appoinment.swift in Sources */,
+				58C278C32A1EA91C006853B8 /* ReviewInAppModel.swift in Sources */,
 				58BC46B029032E6800A6ECBC /* RegistrationView.swift in Sources */,
 				58545DAA29854591006453DE /* StartupScreen.swift in Sources */,
 				58BC466D2902F49F00A6ECBC /* UstaniBilApp.swift in Sources */,

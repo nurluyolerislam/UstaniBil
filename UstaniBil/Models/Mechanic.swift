@@ -11,7 +11,6 @@ import FirebaseFirestoreSwift
 struct Mechanic: Identifiable, Decodable{
     let about: String
     let address:String
-    let avarageScore:Double
     let brand:String
     let company:String
     let education:String
@@ -22,12 +21,10 @@ struct Mechanic: Identifiable, Decodable{
     let phone: String
     let profileImageLocation: String
     let services: [Service]
-    let totalVotes:Int
     
     enum CodingKeys: String, CodingKey {
         case about
         case address
-        case avarageScore = "avarage_score"
         case brand
         case company
         case education
@@ -38,7 +35,6 @@ struct Mechanic: Identifiable, Decodable{
         case phone
         case profileImageLocation = "profile_image_location"
         case services
-        case totalVotes = "total_votes"
     }
 }
 

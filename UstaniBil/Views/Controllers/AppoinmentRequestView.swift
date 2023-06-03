@@ -10,7 +10,7 @@ import SwiftUI
 struct AppoinmentRequestView: View {
     
     let viewModel: MechanicDetailViewModel
-    let mechanic: Mechanic
+    let mechanic: MechanicInAppModel
     
     @State var selectedService = "Listede Yok"
     @State var selectedDate: Date = Calendar.current.date(byAdding: .hour, value: 2, to: Date()) ?? Date.now

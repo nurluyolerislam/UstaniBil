@@ -10,7 +10,7 @@ import Kingfisher
 
 struct MechanicCell: View {
     
-    let mechanic: Mechanic
+    let mechanic: MechanicInAppModel
     
     var body: some View {
         VStack{
@@ -65,7 +65,7 @@ struct MechanicCell: View {
 
 struct MechanicCell_Previews: PreviewProvider {
     static var previews: some View {
-        MechanicCell(mechanic: Mechanic(about: "Marka araçları üzerinde 10 yıllık deneyime sahibim. 4 yıldır elektromekanik alanında çalışıyorum.",
+        MechanicCell(mechanic: MechanicInAppModel(about: "Marka araçları üzerinde 10 yıllık deneyime sahibim. 4 yıldır elektromekanik alanında çalışıyorum.",
                                         address: "Kahramanmaraş",
                                         avarageScore: 4.5,
                                         brand: "Ford",

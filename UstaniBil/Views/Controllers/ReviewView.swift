@@ -10,7 +10,7 @@ import Kingfisher
 
 struct ReviewView: View {
     
-    let mechanic: Mechanic
+    let mechanic: MechanicInAppModel
     let viewModel: MechanicDetailViewModel
     
     @State var text = ""

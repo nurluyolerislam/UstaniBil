@@ -18,7 +18,7 @@ class AuthViewModel: ObservableObject{
         self.fetchUser()
     }
     
-    private let service = UserService()
+    private let userService = UserService()
     
     func login(withEmail email: String, password: String){
         Auth.auth().signIn(withEmail: email, password: password) { result, error in
@@ -79,7 +79,7 @@ class AuthViewModel: ObservableObject{
     func fetchUser(){
         guard let id = self.userSession?.uid else {return}
         
-        self.service.fetchUser(withID: id) { user in
+        self.userService.fetchUser(withID: id) { user in
             self.currentUser = user
             ApplicationVariables.userID = user.id
             ApplicationVariables.userFullname = user.fullname
