@@ -8,6 +8,7 @@
 import Foundation
 
 struct User: Decodable{
+    let accountType: String
     let address: String
     let cars: [Car]
     let email: String
@@ -18,6 +19,7 @@ struct User: Decodable{
     let username: String
     
     enum CodingKeys:String, CodingKey {
+        case accountType = "account_type"
         case address
         case cars
         case email
@@ -30,15 +32,15 @@ struct User: Decodable{
 }
 
 struct Car: Decodable, Identifiable{
-    let brand: String
+    let brandID: Int
     let id: String = UUID().uuidString
+    let logo: String
     let model: String
-    let year: String
     
-    enum CodingKeys: CodingKey {
-        case brand
+    enum CodingKeys: String, CodingKey {
+        case brandID = "brand_id"
         case id
+        case logo
         case model
-        case year
     }
 }

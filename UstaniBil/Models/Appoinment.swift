@@ -9,6 +9,7 @@ import FirebaseFirestore
 
 struct Appoinment: Decodable, Identifiable{
     
+    let carModel: String
     let date: Timestamp
     let id: String
     let mechanicRef: DocumentReference
@@ -17,6 +18,7 @@ struct Appoinment: Decodable, Identifiable{
     let userRef: DocumentReference
     
     enum CodingKeys: String,CodingKey {
+        case carModel = "car_model"
         case date
         case id
         case mechanicRef = "mechanic_ref"

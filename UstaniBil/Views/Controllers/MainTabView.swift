@@ -34,16 +34,16 @@ struct MainTabView: View {
                 }
                 .tag(1)
             
-            NotificationsView()
-                .tabItem {
-                    Label {
-                        Text("Bildirimler")
-                    } icon: {
-                        Image(systemName: "bell")
-                    }
-                }
-                .tag(2)
-                .badge(3)
+//            NotificationsView()
+//                .tabItem {
+//                    Label {
+//                        Text("Bildirimler")
+//                    } icon: {
+//                        Image(systemName: "bell")
+//                    }
+//                }
+//                .tag(2)
+//                .badge(3)
             
             ProfileView()
                 .tabItem {
@@ -53,7 +53,7 @@ struct MainTabView: View {
                         Image(systemName: "person")
                     }
                 }
-                .tag(3)
+                .tag(2)
         }
     }
 }

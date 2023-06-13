@@ -61,7 +61,8 @@ struct AppoinmentRequestView: View {
             }
             
             Button {
-                self.viewModel.requestAppoinment(date: self.selectedDate,
+                self.viewModel.requestAppoinment(carModel: "belirtilmedi",
+                                                 date: self.selectedDate,
                                                  service: self.selectedService,
                                                  mechanicID: self.mechanic.id)
                 self.presentationMode.wrappedValue.dismiss()

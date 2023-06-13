@@ -65,19 +65,20 @@ struct MechanicCell: View {
 
 struct MechanicCell_Previews: PreviewProvider {
     static var previews: some View {
-        MechanicCell(mechanic: MechanicInAppModel(about: "Marka araçları üzerinde 10 yıllık deneyime sahibim. 4 yıldır elektromekanik alanında çalışıyorum.",
-                                        address: "Kahramanmaraş",
-                                        avarageScore: 4.5,
-                                        brand: "Ford",
-                                        company: "Kemak A.Ş.",
-                                        education: "Lise",
-                                        email: "mehmetozdemir@gmail.com",
-                                        fullname: "Mehmet Özdemir",
-                                        id: "4guQBJMzd0qevDUPCLSP",
-                                        languages: ["Türkçe"],
-                                        phone: "+905444444444",
-                                        profileImageLocation: "gs://ustanibil-3a48d.appspot.com/erislam.jpg",
-                                        services: [Service(price: 1000, service: "aaa")],
-                                        totalVotes: 1287))
+        MechanicCell(mechanic: MechanicInAppModel(accountType: "mechanic",
+                                                  about: "Marka araçları üzerinde 10 yıllık deneyime sahibim. 4 yıldır elektromekanik alanında çalışıyorum.",
+                                                  address: "Kahramanmaraş",
+                                                  avarageScore: 4.5,
+                                                  brand: "Ford",
+                                                  company: "Kemak A.Ş.",
+                                                  education: "Lise",
+                                                  email: "mehmetozdemir@gmail.com",
+                                                  fullname: "Mehmet Özdemir",
+                                                  id: "4guQBJMzd0qevDUPCLSP",
+                                                  languages: ["Türkçe"],
+                                                  phone: "+905444444444",
+                                                  profileImageLocation: "gs://ustanibil-3a48d.appspot.com/erislam.jpg",
+                                                  services: [Service(price: 1000, service: "aaa")],
+                                                  totalVotes: 1287))
     }
 }

@@ -48,4 +48,24 @@ struct UserService{
             }
     }
     
+    func addCar(car: Car){
+        
+        let newCar: [String:Any] = [
+            "model" : car.model,
+            "logo" : car.logo,
+            "brand_id" : car.brandID
+        ]
+        
+        Firestore.firestore().collection("users").document(ApplicationVariables.userID)
+            .updateData([
+                "cars" : FieldValue.arrayUnion([newCar])
+            ]) { error in
+                if let error = error {
+                    print(error.localizedDescription)
+                } else {
+                    print("Yeni araç başarıyla eklendi.")
+                }
+            }
+    }
+    
 }

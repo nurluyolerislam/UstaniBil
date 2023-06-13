@@ -9,9 +9,11 @@ import Firebase
 import FirebaseFirestoreSwift
 
 struct Mechanic: Identifiable, Decodable{
+    let accountType: String
     let about: String
     let address:String
     let brand:String
+    let brandID: Int
     let company:String
     let education:String
     let email:String
@@ -23,9 +25,11 @@ struct Mechanic: Identifiable, Decodable{
     let services: [Service]
     
     enum CodingKeys: String, CodingKey {
+        case accountType = "account_type"
         case about
         case address
         case brand
+        case brandID = "brand_id"
         case company
         case education
         case email

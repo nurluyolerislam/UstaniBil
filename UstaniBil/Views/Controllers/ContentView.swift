@@ -14,10 +14,10 @@ struct ContentView: View {
     
     var body: some View {
         Group{
-            if self.viewModel.userSession == nil{
-                StartupScreen()
-            } else {
-                MainTabView()
+            switch self.viewModel.accountType{
+            case .mechanic: MechanicMainTabView()
+            case .user: MainTabView()
+            default: StartupScreen()
             }
         }
     }

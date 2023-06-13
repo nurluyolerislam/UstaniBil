@@ -11,8 +11,6 @@ import Firebase
 class AppoinmentCellViewModel: ObservableObject{
     @Published var mechanicName: String = ""
     
-    let  mechanicService = MechanicsService()
-    
     func fetchMechanicNameFromMechanicReference(ref: DocumentReference){
         ref.getDocument { snapshot, error in
             if let error = error{

@@ -31,7 +31,43 @@ struct ApplicationVariables{
     }
     
     static func resetUserFullname(){
-        defaults.removeObject( forKey: "userFullname")
+        defaults.removeObject(forKey: "userFullname")
+    }
+    
+    static var userEmail: String{
+        get{
+            return defaults.string(forKey: "userEmail") ?? ""
+        }set{
+            defaults.set(newValue, forKey: "userEmail")
+        }
+    }
+    
+    static func resetUserEmail(){
+        defaults.removeObject(forKey: "userEmail")
+    }
+    
+    static var userPhone: String{
+        get{
+            return defaults.string(forKey: "userPhone") ?? ""
+        }set{
+            defaults.set(newValue, forKey: "userPhone")
+        }
+    }
+    
+    static func resetUserPhone(){
+        defaults.removeObject(forKey: "userPhone")
+    }
+    
+    static var userAddress: String{
+        get{
+            return defaults.string(forKey: "userAddress") ?? ""
+        }set{
+            defaults.set(newValue, forKey: "userAddress")
+        }
+    }
+    
+    static func resetUserAddress(){
+        defaults.removeObject( forKey: "userAddress")
     }
     
     static var userProfileImageLocation: String{
@@ -46,9 +82,12 @@ struct ApplicationVariables{
         defaults.removeObject( forKey: "userProfileImageLocation")
     }
     
-    static func reserUserDefaults(){
+    static func resetUserDefaults(){
         self.resetUserID()
         self.resetUserFullname()
+        self.resetUserEmail()
+        self.resetUserPhone()
+        self.resetUserAddress()
         self.resetUserProfileImageLocation()
     }
 }

@@ -20,6 +20,10 @@ struct LoginView: View {
                 .font(.largeTitle).bold()
                 .foregroundColor(.accentColor)
             
+            Text("Müşteri Girişi")
+                .font(.body)
+                .foregroundColor(.accentColor)
+            
             Spacer()
             
             CustomInputField(imageName: "envelope",
@@ -41,6 +45,13 @@ struct LoginView: View {
                 RegistrationView()
             } label: {
                 Text("Hesap Oluştur")
+            }
+            .padding(.bottom)
+            
+            NavigationLink {
+                MechanicLoginView()
+            } label: {
+                Text("Usta Olarak Giriş Yap")
             }
 
         }

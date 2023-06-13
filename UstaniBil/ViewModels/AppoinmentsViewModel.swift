@@ -17,7 +17,7 @@ class AppoinmentsViewModel: ObservableObject{
     
     func fetchAppoinments(){
         self.resetAppoinments()
-        self.service.fetchAppoinments { appoinments in
+        self.service.fetchAppoinmentsForUser { appoinments in
             for appoinment in appoinments {
                 if appoinment.status == "confirmed"{
                     self.confirmedAppoinments.append(appoinment)

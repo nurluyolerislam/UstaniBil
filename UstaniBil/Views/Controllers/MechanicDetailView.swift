@@ -67,14 +67,6 @@ struct MechanicDetailView: View {
                 }
                 
                 HStack{
-                    Image(systemName: "calendar")
-                    
-                    Text("En yakın randevu: 14 Mart Salı")
-                    
-                    Spacer()
-                }
-                
-                HStack{
                     Image(systemName: "trophy")
                     
                     Text("\(self.mechanic.brand) Uzmanı")
@@ -204,7 +196,9 @@ struct MechanicDetailView: View {
                                 .foregroundColor(.accentColor)
                         }
                         
-                        self.voteView
+                        if viewModel.totalVotes != 0 {
+                            self.voteView
+                        }
                         
                         ScrollView{
                             ForEach(self.viewModel.reviewsForMechanic, id: \.id){ review in
@@ -283,12 +277,12 @@ extension MechanicDetailView{
             }
             
             VStack(spacing: 0){
-                ProgressView("5", value: 0.8)
-                ProgressView("4", value: 0.1)
-                ProgressView("3", value: 0.0)
-                ProgressView("2", value: 0.1)
-                ProgressView("1", value: 0.0)
-                ProgressView("0", value: 0.0)
+                ProgressView("5", value: self.viewModel.scores[5] / Double(self.viewModel.totalVotes))
+                ProgressView("4", value: self.viewModel.scores[4] / Double(self.viewModel.totalVotes))
+                ProgressView("3", value: self.viewModel.scores[3] / Double(self.viewModel.totalVotes))
+                ProgressView("2", value: self.viewModel.scores[2] / Double(self.viewModel.totalVotes))
+                ProgressView("1", value: self.viewModel.scores[1] / Double(self.viewModel.totalVotes))
+                ProgressView("0", value: self.viewModel.scores[0] / Double(self.viewModel.totalVotes))
             }
             .tint(.green)
             .font(.footnote)

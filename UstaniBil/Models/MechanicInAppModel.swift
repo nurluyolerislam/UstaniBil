@@ -8,6 +8,7 @@
 import Foundation
 
 struct MechanicInAppModel: Identifiable{
+    let accountType: String
     let about: String
     let address:String
     let avarageScore:Double

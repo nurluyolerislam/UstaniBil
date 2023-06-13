@@ -13,14 +13,7 @@ class HomeViewModel: ObservableObject{
     let reviewService = ReviewService()
     
     @Published var searchText: String = ""
-    //    @Published var mechanics: [Mechanic] = []
     @Published var mechanics: [MechanicInAppModel] = []
-    
-    //    func fetchMechanics(){
-    //        self.service.fetchMechanics { mechanics in
-    //            self.mechanics = mechanics
-    //        }
-    //    }
     
     func fetchMechanics(){
         self.mechanics.removeAll()
@@ -31,7 +24,8 @@ class HomeViewModel: ObservableObject{
                     reviews.forEach { review in
                         avarageScore += Double(review.score) / Double(reviews.count)
                     }
-                    self.mechanics.append(MechanicInAppModel(about: mechanic.about,
+                    self.mechanics.append(MechanicInAppModel(accountType: mechanic.accountType,
+                                                             about: mechanic.about,
                                                              address: mechanic.address,
                                                              avarageScore: avarageScore,
                                                              brand: mechanic.brand,
