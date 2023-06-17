@@ -33,7 +33,7 @@ struct AppoinmentRequestView: View {
                 HStack{
                     Image(systemName: "calendar")
                         .foregroundColor(.accentColor)
-                    DatePicker( "Randevu Tarihi Seç",
+                    DatePicker( "Tarih",
                                 selection: self.$selectedDate,
                                 in: Date()...,
                                 displayedComponents: [.date, .hourAndMinute])
@@ -42,11 +42,9 @@ struct AppoinmentRequestView: View {
                 HStack{
                     Image(systemName: "mappin.and.ellipse")
                         .foregroundColor(.accentColor)
-                    VStack(alignment: .leading){
-                        Text("Kahramanmaraş")
-                        Text("Sana 1 km uzaklıkta")
+                    
+                        Text(self.mechanic.address)
                             .font(.footnote).foregroundColor(.gray)
-                    }
                 }
                 
             }
@@ -54,8 +52,10 @@ struct AppoinmentRequestView: View {
             Section{
                 Picker("İşlem Seçiniz", selection: self.$selectedService) {
                     Text("Listede Yok").tag("Listede Yok")
-                    ForEach(self.mechanic.services, id: \.self){ service in
-                        Text(service.service).tag(service.service)
+                    if let services = self.mechanic.services {
+                        ForEach(services, id: \.self){ service in
+                            Text(service.service).tag(service.service)
+                        }
                     }
                 }
             }
@@ -87,7 +87,6 @@ struct AppoinmentRequestView: View {
 //                                                 email: "mehmetozdemir@gmail.com",
 //                                                 fullname: "Mehmet Özdemir",
 //                                                 id: "4guQBJMzd0qevDUPCLSP",
-//                                                 languages: ["Türkçe"],
 //                                                 phone: "+905444444444",
 //                                                 profileImageLocation: "gs://ustanibil-3a48d.appspot.com/erislam.jpg",
 //                                                 services: [Service(service: "aaa", price: 1000)],

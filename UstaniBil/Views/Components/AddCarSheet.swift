@@ -36,18 +36,41 @@ struct AddCarSheet: View {
                     Text(automobile.name)
                 }
             }
+            .pickerStyle(.menu)
             
             
-            Button {
-                self.viewModel.addCar()
-                self.profileViewModel.fetchUserCars()
-                self.presentationMode.wrappedValue.dismiss()
-            } label: {
-                Text("Ekle")
+            HStack{
+                Button {
+                    self.viewModel.addCar()
+                    self.profileViewModel.fetchUserCars()
+                    self.presentationMode.wrappedValue.dismiss()
+                } label: {
+                    Text("Ekle")
+                        .foregroundColor(.white)
+                        .padding(6)
+                        .background {
+                            RoundedRectangle(cornerRadius: 20)
+                                .foregroundColor(.accentColor)
+                        }
+                }
+                
+                Button {
+                    self.presentationMode.wrappedValue.dismiss()
+                } label: {
+                    Text("Vazgeç")
+                        .foregroundColor(.white)
+                        .padding(6)
+                        .background {
+                            RoundedRectangle(cornerRadius: 20)
+                                .foregroundColor(.accentColor)
+                        }
+                }
             }
+            .buttonStyle(.plain)
+
 
         }
-        .pickerStyle(.menu)
+        .accentColor(.green)
         .onAppear {
             self.viewModel.fetchBrands()
         }

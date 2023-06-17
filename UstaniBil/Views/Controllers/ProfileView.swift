@@ -13,6 +13,7 @@ struct ProfileView: View {
     @EnvironmentObject var authViewModel: AuthViewModel
     @StateObject var viewModel = ProfileViewModel()
     @State var addCarSheetIsOpen: Bool = false
+    @State var isEditProfileOpen: Bool = false
     
     var body: some View {
         Form{
@@ -40,7 +41,7 @@ struct ProfileView: View {
                     Spacer()
                     
                     Button {
-                        
+                        self.isEditProfileOpen = true
                     } label: {
                         Text("Düzenle")
                             .foregroundColor(.white)
@@ -61,7 +62,7 @@ struct ProfileView: View {
             Section {
                 
                 ForEach(self.viewModel.userCars, id: \.id) { car in
-                    CarListCard(car: car)
+                    CarListCard(car: car, profileViewModel: self.viewModel)
                 }
                 
                 HStack{
@@ -107,6 +108,9 @@ struct ProfileView: View {
         }
         .sheet(isPresented: self.$addCarSheetIsOpen) {
             AddCarSheet(profileViewModel: self.viewModel)
+        }
+        .sheet(isPresented: self.$isEditProfileOpen) {
+            EditProfileSheet(profileViewModel: self.viewModel)
         }
     }
 }

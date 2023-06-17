@@ -5,14 +5,19 @@
 //  Created by Erislam Nurluyol on 21.10.2022.
 //
 
+import UIKit
 import Firebase
 import FirebaseAuth
+import FirebaseStorage
 
 class AuthViewModel: ObservableObject{
     
     @Published var userSession: FirebaseAuth.User?
     @Published var currentUser: User?
     @Published var accountType: AccountType? = nil
+    @Published var tempAccountType: AccountType? = nil
+    private var tempUserSession: FirebaseAuth.User?
+    @Published var didAuthenticateUser = false
     
     init(){
         self.userSession = Auth.auth().currentUser
@@ -49,7 +54,7 @@ class AuthViewModel: ObservableObject{
         }
     }
     
-    func register(email: String, password: String, address: String, car: Car, fullname: String, phone: String, username: String){
+    func register(email: String, password: String, address: String, fullname: String, phone: String){
         Auth.auth().createUser(withEmail: email, password: password) { result, error in
             if let error = error{
                 print("DEBUG: Failed to register with error\(error.localizedDescription)")
@@ -57,21 +62,15 @@ class AuthViewModel: ObservableObject{
             }
             
             guard let user = result?.user else {return}
+            self.tempUserSession = user
             
             let data = [
                 "account_type" : "user",
                 "address" : address,
-                "cars" : [
-                    [
-                        "model" : car.model
-                    ]
-                ],
                 "email" : email,
                 "fullname" : fullname,
                 "id" : user.uid,
-                "phone" : phone,
-                "profile_image_location" : "",
-                "username" : username.lowercased()
+                "phone" : phone
             ]
             
             Firestore.firestore().collection("users")
@@ -80,7 +79,8 @@ class AuthViewModel: ObservableObject{
                     if let error = error{
                         print("DEBUG: Failed to set user's data to firestore with error \(error.localizedDescription)")
                     }
-                    self.userSession = user
+                    self.didAuthenticateUser = true
+                    self.tempAccountType = .user
                 }
         }
     }
@@ -91,9 +91,9 @@ class AuthViewModel: ObservableObject{
                           address: String,
                           about: String,
                           brand: String,
+                          brandID: Int,
                           company: String,
                           education: String,
-                          languages: String,
                           phone: String){
         Auth.auth().createUser(withEmail: email, password: password) { result, error in
             if let error = error{
@@ -102,20 +102,20 @@ class AuthViewModel: ObservableObject{
             }
             
             guard let user = result?.user else {return}
+            self.tempUserSession = user
             
             let data = [
                 "about" : about,
                 "account_type" : "mechanic",
                 "address" : address,
                 "brand" : brand,
+                "brand_id" : brandID,
                 "company" : company,
                 "education" : education,
                 "email" : email,
                 "fullname" : fullname,
                 "id" : user.uid,
-                "languages" : languages,
-                "phone" : phone,
-                "profile_image_location" : ""
+                "phone" : phone
             ]
             
             Firestore.firestore().collection("mechanics")
@@ -124,7 +124,8 @@ class AuthViewModel: ObservableObject{
                     if let error = error{
                         print("DEBUG: Failed to set mechanic's data to firestore with error \(error.localizedDescription)")
                     }
-                    self.accountType = .mechanic
+                    self.didAuthenticateUser = true
+                    self.tempAccountType = .mechanic
                 }
         }
     }
@@ -133,6 +134,7 @@ class AuthViewModel: ObservableObject{
         try? Auth.auth().signOut()
         self.userSession = nil
         self.accountType = nil
+        self.didAuthenticateUser = false
         ApplicationVariables.resetUserDefaults()
     }
     
@@ -156,6 +158,9 @@ class AuthViewModel: ObservableObject{
         
         self.mechanicService.fetchMechanic(withID: id) { mechanic in
             self.accountType = .mechanic
+            ApplicationVariables.mechanicAbout = mechanic.about
+            ApplicationVariables.mechanicCompany = mechanic.company
+            ApplicationVariables.mechanicEducation = mechanic.education
             ApplicationVariables.userID = mechanic.id
             ApplicationVariables.userFullname = mechanic.fullname
             ApplicationVariables.userProfileImageLocation = mechanic.profileImageLocation
@@ -165,12 +170,28 @@ class AuthViewModel: ObservableObject{
         }
     }
     
-    // TODO: Giriş yapmış bir kullanıcı olup olmadığını kontrol edecek olan fonksiyon yazılacak
-    //    func checkLoginStatus(){
-    //        Auth.auth().addStateDidChangeListener { auth, user in
-    //
-    //        }
-    //}
+    func uploadProfileImage(_ image: UIImage) {
+        guard let uid = self.tempUserSession?.uid else {return}
+        
+        ImageUploader.uploadImage(image: image) { profileImageUrl in
+            if self.tempAccountType == .user {
+                Firestore.firestore().collection("users")
+                    .document(uid)
+                    .updateData(["profile_image_location" : profileImageUrl]) { _ in
+                        self.userSession = self.tempUserSession
+                        self.fetchUser()
+                    }
+            } else if self.tempAccountType == .mechanic {
+                Firestore.firestore().collection("mechanics")
+                    .document(uid)
+                    .updateData(["profile_image_location" : profileImageUrl]) { _ in
+                        self.fetchMechanic()
+                    }
+            } else {
+                return
+            }
+        }
+    }
     
 }
 

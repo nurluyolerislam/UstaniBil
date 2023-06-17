@@ -16,7 +16,7 @@ struct AppoinmentsView: View {
             if !self.viewModel.confirmedAppoinments.isEmpty{
                 Section {
                     ForEach(self.viewModel.confirmedAppoinments) { appoinment in
-                        AppoinmentCell(appoinment: appoinment)
+                        AppoinmentCell(appoinment: appoinment, appoinmentsViewModel: self.viewModel)
                     }
                 } header: {
                     Text("Yaklaşan Randevularınız")
@@ -27,7 +27,7 @@ struct AppoinmentsView: View {
             if !self.viewModel.waitingAppoinments.isEmpty{
                 Section {
                     ForEach(self.viewModel.waitingAppoinments) { appoinment in
-                        AppoinmentCell(appoinment: appoinment)
+                        AppoinmentCell(appoinment: appoinment, appoinmentsViewModel: self.viewModel)
                     }
                 } header: {
                     Text("Onay Bekleyen Randevularınız")
@@ -38,10 +38,20 @@ struct AppoinmentsView: View {
             if !self.viewModel.finishedAppoinments.isEmpty{
                 Section {
                     ForEach(self.viewModel.finishedAppoinments) { appoinment in
-                        AppoinmentCell(appoinment: appoinment)
+                        AppoinmentCell(appoinment: appoinment, appoinmentsViewModel: self.viewModel)
                     }
                 } header: {
                     Text("Geçmiş Randevularınız")
+                }
+            }
+            
+            if !self.viewModel.rejectedAppoinments.isEmpty{
+                Section {
+                    ForEach(self.viewModel.rejectedAppoinments) { appoinment in
+                        AppoinmentCell(appoinment: appoinment, appoinmentsViewModel: self.viewModel)
+                    }
+                } header: {
+                    Text("Reddedilen Randevularınız")
                 }
             }
             

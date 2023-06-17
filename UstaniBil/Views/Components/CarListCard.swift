@@ -11,6 +11,7 @@ import Kingfisher
 struct CarListCard: View{
     
     let car: Car
+    @ObservedObject var profileViewModel: ProfileViewModel
     
     var body: some View{
         HStack(alignment: .top){
@@ -28,15 +29,15 @@ struct CarListCard: View{
             Spacer()
             
             Button {
-                
+                self.profileViewModel.userService.removeCar(id: self.car.id)
             } label: {
-                Text("Düzenle")
+                Text("Kaldır")
                     .foregroundColor(.white)
                     .font(.footnote)
                     .padding(6)
                     .background {
                         RoundedRectangle(cornerRadius: 20)
-                            .foregroundColor(.accentColor)
+                            .foregroundColor(.red)
                     }
             }
             .buttonStyle(.plain)

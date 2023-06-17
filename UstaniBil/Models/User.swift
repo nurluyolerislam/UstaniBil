@@ -10,13 +10,12 @@ import Foundation
 struct User: Decodable{
     let accountType: String
     let address: String
-    let cars: [Car]
+    let cars: [Car]?
     let email: String
     let fullname: String
     let id: String
     let phone: String
     let profileImageLocation: String
-    let username: String
     
     enum CodingKeys:String, CodingKey {
         case accountType = "account_type"
@@ -27,13 +26,12 @@ struct User: Decodable{
         case id
         case phone
         case profileImageLocation = "profile_image_location"
-        case username
     }
 }
 
 struct Car: Decodable, Identifiable{
     let brandID: Int
-    let id: String = UUID().uuidString
+    let id: String
     let logo: String
     let model: String
     

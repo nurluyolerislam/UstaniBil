@@ -17,8 +17,10 @@ class ProfileViewModel: ObservableObject{
     }
     
     func fetchUserCars(){
-        userService.fetchUser(withID: ApplicationVariables.userID) { user in
-            self.userCars = user.cars
+        self.userService.fetchUser(withID: ApplicationVariables.userID) { user in
+            if let cars = user.cars {
+                self.userCars = cars
+            }
         }
     }
 }

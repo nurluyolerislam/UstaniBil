@@ -19,10 +19,9 @@ struct Mechanic: Identifiable, Decodable{
     let email:String
     let fullname:String
     let id: String
-    let languages: [String]
     let phone: String
     let profileImageLocation: String
-    let services: [Service]
+    let services: [Service]?
     
     enum CodingKeys: String, CodingKey {
         case accountType = "account_type"
@@ -35,7 +34,6 @@ struct Mechanic: Identifiable, Decodable{
         case email
         case fullname
         case id
-        case languages
         case phone
         case profileImageLocation = "profile_image_location"
         case services

@@ -82,6 +82,42 @@ struct ApplicationVariables{
         defaults.removeObject( forKey: "userProfileImageLocation")
     }
     
+    static var mechanicAbout: String{
+        get{
+            return defaults.string(forKey: "mechanicAbout") ?? ""
+        }set{
+            defaults.set(newValue, forKey: "mechanicAbout")
+        }
+    }
+    
+    static func resetMechanicAbout(){
+        defaults.removeObject( forKey: "mechanicAbout")
+    }
+    
+    static var mechanicCompany: String{
+        get{
+            return defaults.string(forKey: "mechanicCompany") ?? ""
+        }set{
+            defaults.set(newValue, forKey: "mechanicCompany")
+        }
+    }
+    
+    static func resetMechanicCompany(){
+        defaults.removeObject( forKey: "mechanicCompany")
+    }
+    
+    static var mechanicEducation: String{
+        get{
+            return defaults.string(forKey: "mechanicEducation") ?? ""
+        }set{
+            defaults.set(newValue, forKey: "mechanicEducation")
+        }
+    }
+    
+    static func resetMechanicEducation(){
+        defaults.removeObject( forKey: "mechanicEducation")
+    }
+    
     static func resetUserDefaults(){
         self.resetUserID()
         self.resetUserFullname()
@@ -89,5 +125,8 @@ struct ApplicationVariables{
         self.resetUserPhone()
         self.resetUserAddress()
         self.resetUserProfileImageLocation()
+        self.resetMechanicAbout()
+        self.resetMechanicCompany()
+        self.resetMechanicEducation()
     }
 }

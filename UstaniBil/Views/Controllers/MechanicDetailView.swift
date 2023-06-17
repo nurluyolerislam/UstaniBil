@@ -118,13 +118,17 @@ struct MechanicDetailView: View {
                 }
                 
                 if self.viewModel.showingIndex == 0{
-                    ForEach(self.mechanic.services, id: \.self){ service in
-                        HStack{
-                            Text(service.service)
-                            Spacer()
-                            Text("\(service.price) TL")
-                                .bold()
+                    if let services = self.mechanic.services {
+                        ForEach(services, id: \.self){ service in
+                            HStack{
+                                Text(service.service)
+                                Spacer()
+                                Text("\(service.price) TL")
+                                    .bold()
+                            }
                         }
+                    } else {
+                        Text("Hizmetler belirtilmemiş")
                     }
                 }
                 
@@ -143,23 +147,12 @@ struct MechanicDetailView: View {
                         }
 
                         HStack(alignment: .top){
-                            Image(systemName: "globe")
-                                .foregroundColor(.accentColor)
-                            VStack(alignment: .leading){
-                                Text("Diller")
-                                    .bold()
-                                Text(self.mechanic.languages.joined(separator: ", "))
-                            }
-                            Spacer()
-                        }
-
-                        HStack(alignment: .top){
                             Image(systemName: "graduationcap")
                                 .foregroundColor(.accentColor)
                             VStack(alignment: .leading){
                                 Text("Eğitim")
                                     .bold()
-                                Text("Lise")
+                                Text(self.mechanic.education)
                             }
                             Spacer()
                         }
@@ -254,7 +247,6 @@ struct MechanicDetailView: View {
 //                                              email: "mehmetozdemir@gmail.com",
 //                                              fullname: "Mehmet Özdemir",
 //                                              id: "4guQBJMzd0qevDUPCLSP",
-//                                              languages: ["Türkçe"],
 //                                              phone: "+905444444444",
 //                                              profileImageLocation: "gs://ustanibil-3a48d.appspot.com/erislam.jpg",
 //                                              services: [Service(price: 1000, service: "aaa")],

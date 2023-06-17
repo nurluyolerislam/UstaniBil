@@ -12,6 +12,7 @@ class AppoinmentsViewModel: ObservableObject{
     @Published var confirmedAppoinments: [Appoinment] = []
     @Published var waitingAppoinments: [Appoinment] = []
     @Published var finishedAppoinments: [Appoinment] = []
+    @Published var rejectedAppoinments: [Appoinment] = []
     
     let service = AppoinmentsService()
     
@@ -28,6 +29,9 @@ class AppoinmentsViewModel: ObservableObject{
                 if appoinment.status == "finished"{
                     self.finishedAppoinments.append(appoinment)
                 }
+                if appoinment.status == "rejected"{
+                    self.rejectedAppoinments.append(appoinment)
+                }
             }
         }
     }
@@ -36,5 +40,6 @@ class AppoinmentsViewModel: ObservableObject{
         self.confirmedAppoinments.removeAll()
         self.waitingAppoinments.removeAll()
         self.finishedAppoinments.removeAll()
+        self.rejectedAppoinments.removeAll()
     }
 }

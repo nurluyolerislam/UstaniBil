@@ -11,6 +11,7 @@ struct AppoinmentCell: View{
     
     let appoinment: Appoinment
     @StateObject var viewModel = AppoinmentCellViewModel()
+    @ObservedObject var appoinmentsViewModel: AppoinmentsViewModel
     
     var body: some View{
         HStack(alignment: .top){
@@ -29,6 +30,10 @@ struct AppoinmentCell: View{
                     Text("Tamamlandı")
                         .modifier(AppoinmentStatusModifier())
                 }
+                if self.appoinment.status == "rejected"{
+                    Text("Reddedildi")
+                        .modifier(AppoinmentStatusModifier())
+                }
                     
                 Text(self.appoinment.service)
                     .bold()
@@ -44,19 +49,22 @@ struct AppoinmentCell: View{
             
             VStack{
                 
-                Button {
-                    
-                } label: {
-                    Text("Detay")
-                        .padding(.horizontal, 10)
-                        .background {
-                            RoundedRectangle(cornerRadius: 20)
-                                .stroke()
-                        }
+                if self.appoinment.status == "waiting" {
+                    Button {
+                        self.viewModel.removeAppointment(appointmentID: self.appoinment.id)
+                        self.appoinmentsViewModel.fetchAppoinments()
+                    } label: {
+                        Text("Kaldır")
+                            .padding(.horizontal, 10)
+                            .background {
+                                RoundedRectangle(cornerRadius: 20)
+                                    .stroke()
+                            }
+                    }
+                    .foregroundColor(.red)
+                    .buttonStyle(.plain)
+                    .padding(.bottom, 10)
                 }
-                .foregroundColor(.accentColor)
-                .buttonStyle(.plain)
-                .padding(.bottom, 10)
                 
                 Text(self.appoinment.date.dateValue().formatted(Date.FormatStyle().day(.twoDigits).month(.twoDigits).year()).description)
                     .bold()

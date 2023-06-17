@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5841D09A2A39F14900A4EB96 /* EditProfileSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5841D0992A39F14900A4EB96 /* EditProfileSheet.swift */; };
+		5841D09E2A3B2F1F00A4EB96 /* MechanicRegistrationDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5841D09D2A3B2F1F00A4EB96 /* MechanicRegistrationDetailViewModel.swift */; };
+		5841D0A22A3B43D700A4EB96 /* EditMechanicProfileSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5841D0A12A3B43D700A4EB96 /* EditMechanicProfileSheet.swift */; };
+		5841D0A42A3B449200A4EB96 /* MechanicProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5841D0A32A3B449200A4EB96 /* MechanicProfileViewModel.swift */; };
+		5841D0A62A3B5E8F00A4EB96 /* AddServiceSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5841D0A52A3B5E8F00A4EB96 /* AddServiceSheet.swift */; };
 		5849CC6329488538006BCADA /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5849CC6229488538006BCADA /* HomeView.swift */; };
 		584DE6832938B84D002AED69 /* MechanicsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584DE6822938B84D002AED69 /* MechanicsService.swift */; };
 		584DE6852938B9A5002AED69 /* Mechanic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584DE6842938B9A5002AED69 /* Mechanic.swift */; };
@@ -14,6 +19,9 @@
 		58545DAA29854591006453DE /* StartupScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58545DA929854591006453DE /* StartupScreen.swift */; };
 		58545DAC298549E9006453DE /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58545DAB298549E9006453DE /* HomeViewModel.swift */; };
 		587685952A38BC3D00D7897C /* CarListCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587685942A38BC3D00D7897C /* CarListCard.swift */; };
+		587685A12A39B18B00D7897C /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587685A02A39B18B00D7897C /* ImagePicker.swift */; };
+		587685A32A39B23500D7897C /* ProfilePhotoSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587685A22A39B23500D7897C /* ProfilePhotoSelectorView.swift */; };
+		587685A52A39B30A00D7897C /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587685A42A39B30A00D7897C /* ImageUploader.swift */; };
 		589FB69A2954392800392E51 /* CustomSecureField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589FB6992954392800392E51 /* CustomSecureField.swift */; };
 		589FB69C2959AB6000392E51 /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589FB69B2959AB6000392E51 /* NotificationsView.swift */; };
 		589FB69E2959ABCF00392E51 /* AppoinmentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589FB69D2959ABCF00392E51 /* AppoinmentsView.swift */; };
@@ -72,6 +80,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5841D0992A39F14900A4EB96 /* EditProfileSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileSheet.swift; sourceTree = "<group>"; };
+		5841D09D2A3B2F1F00A4EB96 /* MechanicRegistrationDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MechanicRegistrationDetailViewModel.swift; sourceTree = "<group>"; };
+		5841D0A12A3B43D700A4EB96 /* EditMechanicProfileSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMechanicProfileSheet.swift; sourceTree = "<group>"; };
+		5841D0A32A3B449200A4EB96 /* MechanicProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MechanicProfileViewModel.swift; sourceTree = "<group>"; };
+		5841D0A52A3B5E8F00A4EB96 /* AddServiceSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddServiceSheet.swift; sourceTree = "<group>"; };
 		5849CC6229488538006BCADA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		584DE6822938B84D002AED69 /* MechanicsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MechanicsService.swift; sourceTree = "<group>"; };
 		584DE6842938B9A5002AED69 /* Mechanic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mechanic.swift; sourceTree = "<group>"; };
@@ -79,6 +92,9 @@
 		58545DA929854591006453DE /* StartupScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartupScreen.swift; sourceTree = "<group>"; };
 		58545DAB298549E9006453DE /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		587685942A38BC3D00D7897C /* CarListCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarListCard.swift; sourceTree = "<group>"; };
+		587685A02A39B18B00D7897C /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		587685A22A39B23500D7897C /* ProfilePhotoSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePhotoSelectorView.swift; sourceTree = "<group>"; };
+		587685A42A39B30A00D7897C /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
 		589FB6992954392800392E51 /* CustomSecureField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSecureField.swift; sourceTree = "<group>"; };
 		589FB69B2959AB6000392E51 /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
 		589FB69D2959ABCF00392E51 /* AppoinmentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppoinmentsView.swift; sourceTree = "<group>"; };
@@ -168,6 +184,7 @@
 				58A89E67298966C20068BE49 /* AppoinmentCellViewModel.swift */,
 				58C278E92A374825006853B8 /* AddCarSheetViewModel.swift */,
 				58C278F32A386902006853B8 /* ProfileViewModel.swift */,
+				5841D09D2A3B2F1F00A4EB96 /* MechanicRegistrationDetailViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -203,6 +220,8 @@
 				589FB6AE29759CB200392E51 /* ReviewView.swift */,
 				58545DA929854591006453DE /* StartupScreen.swift */,
 				58A89E5F298734BC0068BE49 /* AppoinmentRequestView.swift */,
+				587685A02A39B18B00D7897C /* ImagePicker.swift */,
+				587685A22A39B23500D7897C /* ProfilePhotoSelectorView.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -218,6 +237,7 @@
 				58A89E5B2986FEB50068BE49 /* ScoreView.swift */,
 				58C278E72A3747F2006853B8 /* AddCarSheet.swift */,
 				587685942A38BC3D00D7897C /* CarListCard.swift */,
+				5841D0992A39F14900A4EB96 /* EditProfileSheet.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -229,6 +249,7 @@
 				584DE6822938B84D002AED69 /* MechanicsService.swift */,
 				58A89E5729869C9D0068BE49 /* AppoinmentsService.swift */,
 				58A89E652987EDCD0068BE49 /* ReviewService.swift */,
+				587685A42A39B30A00D7897C /* ImageUploader.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -312,6 +333,9 @@
 				58C278D72A305768006853B8 /* MechanicAppointmentCell.swift */,
 				58C278D92A305819006853B8 /* MechanicAppointmentCellViewModel.swift */,
 				58C278D32A2F1E08006853B8 /* MechanicProfileView.swift */,
+				5841D0A12A3B43D700A4EB96 /* EditMechanicProfileSheet.swift */,
+				5841D0A32A3B449200A4EB96 /* MechanicProfileViewModel.swift */,
+				5841D0A52A3B5E8F00A4EB96 /* AddServiceSheet.swift */,
 			);
 			name = Mechanic;
 			sourceTree = "<group>";
@@ -407,13 +431,16 @@
 				58C278E82A3747F2006853B8 /* AddCarSheet.swift in Sources */,
 				58E9CFF529033558004CBAB3 /* CustomInputField.swift in Sources */,
 				584DE6832938B84D002AED69 /* MechanicsService.swift in Sources */,
+				5841D0A42A3B449200A4EB96 /* MechanicProfileViewModel.swift in Sources */,
 				58C278CC2A2B2311006853B8 /* MechanicRegistrationDetailView.swift in Sources */,
 				58A89E5A2986B6E80068BE49 /* AppoinmentCell.swift in Sources */,
+				5841D09A2A39F14900A4EB96 /* EditProfileSheet.swift in Sources */,
 				58C278D42A2F1E08006853B8 /* MechanicProfileView.swift in Sources */,
 				58C278F42A386902006853B8 /* ProfileViewModel.swift in Sources */,
 				58A89E5829869C9D0068BE49 /* AppoinmentsService.swift in Sources */,
 				58BC46AC290326CC00A6ECBC /* LoginView.swift in Sources */,
 				58C278D22A2F1DEF006853B8 /* MechanicAppointmentsView.swift in Sources */,
+				587685A32A39B23500D7897C /* ProfilePhotoSelectorView.swift in Sources */,
 				58C278CE2A2B23B1006853B8 /* MechanicLoginView.swift in Sources */,
 				58C278E62A374673006853B8 /* Brand.swift in Sources */,
 				58B7BD172909CD92000F50FF /* ProfileView.swift in Sources */,
@@ -428,6 +455,7 @@
 				58C278EA2A374825006853B8 /* AddCarSheetViewModel.swift in Sources */,
 				58BC46A82903231100A6ECBC /* UserService.swift in Sources */,
 				589FB6AF29759CB200392E51 /* ReviewView.swift in Sources */,
+				5841D09E2A3B2F1F00A4EB96 /* MechanicRegistrationDetailViewModel.swift in Sources */,
 				584DE6852938B9A5002AED69 /* Mechanic.swift in Sources */,
 				58A89E662987EDCD0068BE49 /* ReviewService.swift in Sources */,
 				58A89E6C298C57B30068BE49 /* Extensions.swift in Sources */,
@@ -446,11 +474,15 @@
 				58BC46B029032E6800A6ECBC /* RegistrationView.swift in Sources */,
 				58545DAA29854591006453DE /* StartupScreen.swift in Sources */,
 				58BC466D2902F49F00A6ECBC /* UstaniBilApp.swift in Sources */,
+				587685A52A39B30A00D7897C /* ImageUploader.swift in Sources */,
 				58BC46AA2903236200A6ECBC /* User.swift in Sources */,
 				58A89E5E2987323A0068BE49 /* MechanicDetailViewModel.swift in Sources */,
 				58BC46A6290321AD00A6ECBC /* AuthViewModel.swift in Sources */,
+				5841D0A22A3B43D700A4EB96 /* EditMechanicProfileSheet.swift in Sources */,
+				5841D0A62A3B5E8F00A4EB96 /* AddServiceSheet.swift in Sources */,
 				587685952A38BC3D00D7897C /* CarListCard.swift in Sources */,
 				589FB6AB296B07D800392E51 /* AppoinmentsViewModel.swift in Sources */,
+				587685A12A39B18B00D7897C /* ImagePicker.swift in Sources */,
 				58A89E5C2986FEB50068BE49 /* ScoreView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

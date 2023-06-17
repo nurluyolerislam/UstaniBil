@@ -10,20 +10,20 @@ import SwiftUI
 struct RegistrationView: View {
     
     @State private var email = ""
-    @State private var username = ""
     @State private var fullname = ""
     @State private var password = ""
     @State private var address = ""
-    @State private var carBrand = ""
-    @State private var carModel = ""
-    @State private var carLogo = ""
-    @State private var brandID = 0
     @State private var phone = ""
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var viewModel: AuthViewModel
     
     var body: some View {
         VStack{
+            NavigationLink(isActive: self.$viewModel.didAuthenticateUser) {
+                ProfilePhotoSelectorView()
+            } label: {
+                EmptyView()
+            }
             
             Spacer()
             
@@ -34,21 +34,12 @@ struct RegistrationView: View {
                 CustomInputField(imageName: "person",
                                  placeHolderText: "Ad Soyad",
                                  text: self.$fullname)
-                CustomInputField(imageName: "person",
-                                 placeHolderText: "Kullanıcı Adı",
-                                 text: self.$username)
                 CustomSecureField(imageName: "lock",
                                   placeHolderText: "Parola",
                                   text: self.$password)
                 CustomInputField(imageName: "mappin.and.ellipse",
                                  placeHolderText: "Adres",
                                  text: self.$address)
-                CustomInputField(imageName: "car",
-                                 placeHolderText: "Araba Markası",
-                                 text: self.$carBrand)
-                CustomInputField(imageName: "car",
-                                 placeHolderText: "Araba Modeli",
-                                 text: self.$carModel)
                 CustomInputField(imageName: "phone",
                                  placeHolderText: "Telefon Numarası",
                                  text: self.$phone)
@@ -58,12 +49,8 @@ struct RegistrationView: View {
                 self.viewModel.register(email: self.email,
                                         password: self.password,
                                         address: self.address,
-                                        car: Car(brandID: self.brandID,
-                                                 logo: self.carLogo,
-                                                 model: self.carModel),
                                         fullname: self.fullname,
-                                        phone: self.phone,
-                                        username: self.username)
+                                        phone: self.phone)
             } label: {
                 Text("Kayıt Ol")
             }

@@ -18,9 +18,8 @@ struct MechanicInAppModel: Identifiable{
     let email:String
     let fullname:String
     let id: String
-    let languages: [String]
     let phone: String
     let profileImageLocation: String
-    let services: [Service]
+    let services: [Service]?
     let totalVotes:Int
 }

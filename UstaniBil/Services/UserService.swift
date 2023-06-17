@@ -51,6 +51,7 @@ struct UserService{
     func addCar(car: Car){
         
         let newCar: [String:Any] = [
+            "id" : car.id,
             "model" : car.model,
             "logo" : car.logo,
             "brand_id" : car.brandID
@@ -64,6 +65,33 @@ struct UserService{
                     print(error.localizedDescription)
                 } else {
                     print("Yeni araç başarıyla eklendi.")
+                }
+            }
+    }
+    
+    func removeCar(id: String){
+        Firestore.firestore().collection("users").document(ApplicationVariables.userID)
+            .updateData(["cars" : FieldValue.arrayRemove([id])]){ error in
+                if let error = error {
+                    print("Error removing car: \(error.localizedDescription)")
+                } else {
+                    print("Car successfully removed")
+                }
+            }
+    }
+    
+    func updateUser(email: String, fullname: String, address: String, phone: String){
+        Firestore.firestore().collection("users").document(ApplicationVariables.userID)
+            .updateData([
+                "email" : email,
+                "fullname" : fullname,
+                "address" : address,
+                "phone" : phone
+            ]) { error in
+                if let error = error {
+                    print(error.localizedDescription)
+                } else {
+                    print("Kullanıcı bilgileri güncellendi.")
                 }
             }
     }

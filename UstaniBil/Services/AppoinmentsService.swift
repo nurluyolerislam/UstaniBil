@@ -49,7 +49,7 @@ struct AppoinmentsService{
         let mechanicRef = Firestore.firestore().collection("mechanics").document(mechanicID)
         let userRef = Firestore.firestore().collection("users").document(ApplicationVariables.userID)
         let data = [
-            "car_model" : "belirtilmedi",
+            "car_model" : carModel,
             "date" : Timestamp(date: date),
             "mechanic_ref" : mechanicRef,
             "service" : service,

@@ -11,6 +11,9 @@ import Kingfisher
 struct MechanicProfileView: View {
     
     @EnvironmentObject var authViewModel: AuthViewModel
+    @State var isEditMechanicProfileOpen = false
+    @StateObject var viewModel = MechanicProfileViewModel()
+    @State var isAddServiceSheetOpen = false
     
     var body: some View {
         Form {
@@ -38,7 +41,7 @@ struct MechanicProfileView: View {
                     Spacer()
                     
                     Button {
-                        
+                        self.isEditMechanicProfileOpen = true
                     } label: {
                         Text("Düzenle")
                             .foregroundColor(.white)
@@ -54,6 +57,40 @@ struct MechanicProfileView: View {
                 }
             } header: {
                 Text("Profil")
+            }
+            
+            Section {
+                
+                ForEach(self.viewModel.mechanicServices, id: \.self) { service in
+                    HStack{
+                        Text(service.service)
+                        Spacer()
+                        Text("\(service.price) TL")
+                    }
+                    .font(.subheadline)
+                    .bold()
+                }
+                
+                HStack{
+                    Spacer()
+                    Button {
+                        self.isAddServiceSheetOpen = true
+                    } label: {
+                        Text("Hizmet Ekle")
+                            .foregroundColor(.white)
+                            .font(.footnote)
+                            .padding(6)
+                            .background {
+                                RoundedRectangle(cornerRadius: 20)
+                                    .foregroundColor(.accentColor)
+                            }
+                    }
+                    .buttonStyle(.plain)
+                    Spacer()
+                }
+                
+            } header: {
+                Text("Hizmetlerin")
             }
             
             Section{
@@ -73,6 +110,12 @@ struct MechanicProfileView: View {
                 }
                 
             }
+        }
+        .sheet(isPresented: self.$isEditMechanicProfileOpen) {
+            EditMechanicProfileSheet(mechanicProfileViewModel: self.viewModel)
+        }
+        .sheet(isPresented: self.$isAddServiceSheetOpen) {
+            AddServiceSheet(mechanicProfileViewModel: self.viewModel)
         }
     }
 }

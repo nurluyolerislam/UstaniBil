@@ -41,4 +41,41 @@ class MechanicsService{
             }
     }
     
+    func updateMechanic(about: String, company: String, education: String, email: String, fullname: String, address: String, phone: String){
+        Firestore.firestore().collection("mechanics").document(ApplicationVariables.userID)
+            .updateData([
+                "about" : about,
+                "company" : company,
+                "education" : education,
+                "email" : email,
+                "fullname" : fullname,
+                "address" : address,
+                "phone" : phone
+            ]) {
+                error in
+                if let error = error {
+                    print(error.localizedDescription)
+                } else {
+                    print("Usta bilgileri güncellendi.")
+                }
+            }
+    }
+    
+    func addService(service: Service){
+        let newService : [String : Any] = [
+            "service" : service.service,
+            "price" : service.price
+        ]
+        Firestore.firestore().collection("mechanics").document(ApplicationVariables.userID)
+            .updateData([
+                "services" : FieldValue.arrayUnion([newService])
+            ]) { error in
+                if let error = error{
+                    print(error.localizedDescription)
+                } else {
+                    print("Hizmet başarıyla eklendi")
+                }
+            }
+    }
+    
 }

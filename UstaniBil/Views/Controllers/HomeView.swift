@@ -16,11 +16,29 @@ struct HomeView: View {
             Text("Ustanı Bil")
                 .font(.title)
             
+            Picker("Araç seçiniz", selection: self.$viewModel.selectedBrandID) {
+                Text("Araç Seçiniz")
+                ForEach(self.viewModel.userCars, id: \.brandID) { car in
+                    Text(car.model)
+                }
+            }
+            .onChange(of: self.viewModel.selectedBrandID) { newValue in
+                self.viewModel.fetchMechanics()
+            }
+            
             CustomSearchBar(text: self.$viewModel.searchText)
                 .padding(.bottom, 20)
             
             if self.viewModel.searchText.isEmpty{
-                self.recommendedMechanics
+                if self.viewModel.selectedBrandID == 0{
+                    EmptyView()
+                } else {
+                    if !self.viewModel.mechanics.isEmpty{
+                        self.recommendedMechanics
+                    } else {
+                        Text("Şu an için bölgenizde aracınıza uygun bir usta bulunmamaktadır.")
+                    }
+                }
             } else {
                 ScrollView{
                     ForEach(self.viewModel.mechanics.filter { $0.fullname.lowercased().contains(self.viewModel.searchText.lowercased()) }){ mechanic in
@@ -40,6 +58,7 @@ struct HomeView: View {
         .padding()
         .onAppear {
             self.viewModel.fetchMechanics()
+            self.viewModel.fetchUserCars()
         }
     }
 }
@@ -63,7 +82,7 @@ extension HomeView{
                 } label: {
                     MechanicCell(mechanic: mechanic)
                 }
-                    .foregroundColor(.black)
+                .foregroundColor(.black)
             }
             
             
